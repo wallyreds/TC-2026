@@ -1051,7 +1051,7 @@ body{font-family:'DM Sans',sans-serif;background:#f4f1eb;color:#1a1a1a;}
     </div>
   </div>
 
-  <div class="setup-warning" id="setup-warning">
+  <div class="setup-warning" id="setup-warning" style="display:none!important">
     ⚠️ Backend not configured yet — votes won't be saved. Add your JSONbin credentials to the script to enable live voting.
   </div>
 
@@ -1165,11 +1165,6 @@ const DEST_NAMES  = { mb:'Myrtle Beach', ac:'Atlantic City', tc:'Traverse City',
 const DEST_COLORS = { mb:'#1a6b3a', ac:'#1a3d6b', tc:'#3d6b1a', ch:'#7a1640', sd:'#994d00' };
 const POINTS = [5,4,3,2,1];
 const AVATAR_COLORS = ['#1a6b3a','#1a3d6b','#3d6b1a','#7a1640','#994d00','#5a3d8b','#8b5a2b','#2b5a8b'];
-
-function isConfigured() {
-  return JSONBIN_API_KEY !== '$2a$10$BDPecBkmSGorqCUkBmdAVe5UuQ6Krk5Bu0d9vWKKY05PZw7Kyw4bW' && JSONBIN_BIN_ID !== '69c19b49c3097a1dd551e109';
-}
-
 
 function showPopup() {
   document.getElementById('vote-popup').classList.add('visible');
@@ -1374,7 +1369,7 @@ async function loadResults() {
 }
 
 // ── Init ──────────────────────────────────────
-if (!isConfigured()) document.getElementById('setup-warning').classList.add('visible');
+if (false) document.getElementById('setup-warning').classList.add('visible');
 document.getElementById('voter-name').addEventListener('blur', () => {
   const name = document.getElementById('voter-name').value.trim();
   if (name && localStorage.getItem('golf_voted_' + name.toLowerCase())) {
