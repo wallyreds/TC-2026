@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TC6 Fairways and Fluffers 2026 — Aug 13–16</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ── TAB NAV ── */
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:#f4f1eb;color:#1a1a1a;}
+.tab-nav{position:sticky;top:0;z-index:100;background:#1a1a1a;display:flex;align-items:stretch;}
+.tab-nav-inner{max-width:1100px;margin:0 auto;display:flex;width:100%;padding:0 24px;}
+.tab-btn{padding:16px 28px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:#8a8680;background:none;border:none;cursor:pointer;border-bottom:3px solid transparent;transition:color .15s,border-color .15s;white-space:nowrap;}
+.tab-btn.active{color:#fff;border-bottom-color:#c9972a;}
+.tab-btn:hover:not(.active){color:#ccc;}
+.tab-title{padding:14px 24px 14px 0;font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:#fff;margin-right:auto;white-space:nowrap;display:flex;align-items:center;}
+.tab-panel{display:none;}
+.tab-panel.active{display:block;}
+</style>
+<style>
+  :root {
+    --mb: #1a6b3a;
+    --mb-light: #e8f5ee;
+    --ac: #1a3d6b;
+    --ac-light: #e8eef5;
+    --tc: #3d6b1a;
+    --tc-light: #eef5e8;
+    --ch: #8b1a4a;
+    --ch-light: #f5e8ee;
+    --sd: #b85c00;
+    --sd-light: #fdf0e6;
+    --gold: #c9972a;
+    --ink: #1a1a1a;
+    --mist: #f7f5f0;
+    --stone: #8a8680;
+    --rule: #ddd9d0;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #f4f1eb;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+
+  .page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+
+  /* ── HEADER ── */
+  .masthead {
+    text-align: center;
+    margin-bottom: 56px;
+    padding-bottom: 40px;
+    border-bottom: 2px solid var(--ink);
+    position: relative;
+  }
+  .masthead::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--gold);
+    margin: 12px auto 0;
+  }
+  .masthead-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 12px;
+  }
+  .masthead h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+  .masthead-sub {
+    font-size: 14px;
+    color: var(--stone);
+  }
+
+  /* ── DESTINATION CARDS ── */
+  .destination {
+    background: white;
+    border-radius: 2px;
+    margin-bottom: 48px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+
+  .dest-header {
+    padding: 28px 36px 24px;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  .dest-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 64px;
+    font-weight: 900;
+    line-height: 1;
+    opacity: 0.08;
+    position: absolute;
+    top: 20px;
+    right: 36px;
+  }
+
+  .dest-header-left { flex: 1; position: relative; }
+
+  .dest-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 2px;
+    display: inline-block;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+
+  .dest-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .dest-subtitle {
+    font-size: 13px;
+    color: var(--stone);
+  }
+
+  .dest-scores {
+    display: flex;
+    gap: 20px;
+    flex-shrink: 0;
+  }
+
+  .score-item {
+    text-align: center;
+  }
+
+  .score-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 4px;
+  }
+
+  .score-stars {
+    font-size: 13px;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  /* ── BODY GRID ── */
+  .dest-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0;
+  }
+
+  .dest-section {
+    padding: 28px 32px;
+    border-right: 1px solid var(--rule);
+  }
+  .dest-section:last-child { border-right: none; }
+
+  .section-heading {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  /* ── BUDGET TABLE ── */
+  .budget-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 8px 0;
+    border-bottom: 1px dotted var(--rule);
+    font-size: 13px;
+  }
+  .budget-row:last-child { border-bottom: none; }
+  .budget-label { color: var(--stone); }
+  .budget-val {
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    font-weight: 500;
+  }
+  .budget-total {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 2px solid var(--ink);
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+  }
+  .budget-total .budget-val {
+    font-size: 15px;
+  }
+  .budget-note {
+    font-size: 11px;
+    color: var(--stone);
+    margin-top: 8px;
+    font-style: italic;
+  }
+  .rental-links {
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px dotted var(--rule);
+  }
+  .rental-links-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 8px;
+  }
+  .rental-link-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px 0;
+    border-bottom: 1px dotted var(--rule);
+  }
+  .rental-link-row:last-child { border-bottom: none; }
+  .rental-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    width: 18px;
+    color: var(--stone);
+    flex-shrink: 0;
+  }
+  .rental-link-row a {
+    font-size: 12px;
+    color: #cc6800;
+    text-decoration: none;
+    padding: 3px 8px;
+    border-radius: 4px;
+    background: #fdf0e6;
+    border: 0.5px solid #f0c080;
+    transition: background .1s;
+    white-space: nowrap;
+  }
+  .rental-link-row a:hover { background: #ffe0b2; }
+
+  /* ── ITINERARY ── */
+  .day-block {
+    margin-bottom: 16px;
+  }
+  .day-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+  .day-title {
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+  .day-detail {
+    font-size: 12px;
+    color: var(--stone);
+    line-height: 1.5;
+  }
+
+  /* ── NIGHTLIFE ── */
+  .spot {
+    display: flex;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px dotted var(--rule);
+    align-items: flex-start;
+  }
+  .spot:last-child { border-bottom: none; }
+  .spot-icon {
+    font-size: 14px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .spot-info {}
+  .spot-name {
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 1px;
+  }
+  .spot-desc {
+    font-size: 11px;
+    color: var(--stone);
+    line-height: 1.4;
+  }
+
+  /* ── DESTINATION COLORS ── */
+  .mb .dest-tag { background: var(--mb-light); color: var(--mb); }
+  .mb .dest-header { border-left: 5px solid var(--mb); }
+  .mb .day-label { color: var(--mb); }
+  .mb .section-heading::after { background: var(--mb); }
+
+  .ac .dest-tag { background: var(--ac-light); color: var(--ac); }
+  .ac .dest-header { border-left: 5px solid var(--ac); }
+  .ac .day-label { color: var(--ac); }
+
+  .tc .dest-tag { background: var(--tc-light); color: var(--tc); }
+  .tc .dest-header { border-left: 5px solid var(--tc); }
+  .tc .day-label { color: var(--tc); }
+
+  .ch .dest-tag { background: var(--ch-light); color: var(--ch); }
+  .ch .dest-header { border-left: 5px solid var(--ch); }
+  .ch .day-label { color: var(--ch); }
+
+  .sd .dest-tag { background: var(--sd-light); color: var(--sd); }
+  .sd .dest-header { border-left: 5px solid var(--sd); }
+  .sd .day-label { color: var(--sd); }
+
+  /* ── SUMMARY TABLE ── */
+  .summary-table-wrap {
+    background: white;
+    border-radius: 2px;
+    padding: 36px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    margin-top: 48px;
+  }
+
+  .summary-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .summary-sub {
+    font-size: 13px;
+    color: var(--stone);
+    margin-bottom: 24px;
+  }
+
+  table.summary {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+
+  table.summary th {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--stone);
+    text-align: left;
+    padding: 8px 12px;
+    border-bottom: 2px solid var(--ink);
+    background: var(--mist);
+  }
+
+  table.summary td {
+    padding: 11px 12px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: middle;
+  }
+
+  table.summary tr:last-child td { border-bottom: none; }
+
+  .dest-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 500;
+  }
+
+  .dest-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .price-highlight {
+    font-family: 'DM Mono', monospace;
+    font-weight: 500;
+  }
+
+  .best-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: #1a6b3a;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 2px;
+  }
+
+  .warn-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: #b85c00;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 2px;
+  }
+
+  @media (max-width: 768px) {
+    .dest-body { grid-template-columns: 1fr; }
+    .dest-section { border-right: none; border-bottom: 1px solid var(--rule); }
+    .dest-scores { display: none; }
+  }
+</style>
+<style>
+  :root {
+    --mb: #1a6b3a; --mb-l: #e8f5ee; --mb-t: #27500A;
+    --ac: #1a3d6b; --ac-l: #e8eef5; --ac-t: #0C447C;
+    --tc: #3d6b1a; --tc-l: #eef5e8; --tc-t: #27500A;
+    --ch: #7a1640; --ch-l: #f5e8ee; --ch-t: #72243E;
+    --sd: #994d00; --sd-l: #fdf0e6; --sd-t: #633806;
+    --gold: #BA7517;
+    --ink: #1a1a1a;
+    --mist: #f6f4ef;
+    --stone: #7a7671;
+    --rule: #e2ddd5;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', sans-serif; background: #f0ede6; color: var(--ink); line-height: 1.5; }
+  .page { max-width: 820px; margin: 0 auto; padding: 40px 20px 80px; }
+
+  .masthead { text-align: center; margin-bottom: 40px; }
+  .eyebrow { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--stone); margin-bottom: 10px; }
+  .masthead h1 { font-family: 'Playfair Display', serif; font-size: clamp(28px,6vw,48px); font-weight: 900; line-height: 1.1; margin-bottom: 8px; }
+  .masthead p { font-size: 14px; color: var(--stone); max-width: 480px; margin: 0 auto 20px; }
+  .how-it-works { background: white; border-radius: 10px; border: 0.5px solid var(--rule); padding: 16px 20px; font-size: 13px; color: var(--stone); display: inline-block; text-align: left; }
+  .how-it-works strong { color: var(--ink); display: block; margin-bottom: 4px; font-size: 12px; text-transform: uppercase; letter-spacing: .08em; font-family: 'DM Mono', monospace; }
+
+  .name-section { background: white; border-radius: 12px; border: 0.5px solid var(--rule); padding: 20px 24px; margin-bottom: 28px; }
+  .name-section label { font-size: 13px; font-weight: 500; display: block; margin-bottom: 8px; }
+  .name-section input { width: 100%; border: 0.5px solid var(--rule); border-radius: 8px; padding: 10px 14px; font-family: 'DM Sans', sans-serif; font-size: 15px; outline: none; color: var(--ink); background: var(--mist); transition: border-color .15s; }
+  .name-section input:focus { border-color: var(--gold); background: white; }
+
+  .instructions { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--stone); margin-bottom: 14px; }
+
+  .dest-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
+
+  .dest-card {
+    background: white; border-radius: 12px; border: 0.5px solid var(--rule);
+    padding: 14px 16px; display: flex; align-items: center; gap: 14px;
+    cursor: grab; user-select: none; transition: box-shadow .15s, transform .15s;
+    position: relative;
+  }
+  .dest-card.dragging { opacity: .5; transform: scale(0.98); }
+  .dest-card.drag-over { box-shadow: 0 0 0 2px var(--gold); }
+
+  .rank-badge {
+    width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center;
+    justify-content: center; font-family: 'Playfair Display', serif; font-size: 16px;
+    font-weight: 700; flex-shrink: 0; background: var(--mist); color: var(--stone);
+    border: 0.5px solid var(--rule); transition: background .2s, color .2s;
+  }
+  .rank-1 .rank-badge { background: #BA7517; color: white; border-color: #BA7517; }
+  .rank-2 .rank-badge { background: var(--ink); color: white; border-color: var(--ink); }
+  .rank-3 .rank-badge { background: #7a7671; color: white; border-color: #7a7671; }
+
+  .dest-color-bar { width: 4px; height: 42px; border-radius: 2px; flex-shrink: 0; }
+  .mb-bar { background: var(--mb); }
+  .ac-bar { background: var(--ac); }
+  .tc-bar { background: var(--tc); }
+  .ch-bar { background: var(--ch); }
+  .sd-bar { background: var(--sd); }
+
+  .dest-info { flex: 1; min-width: 0; }
+  .dest-name { font-weight: 500; font-size: 15px; }
+  .dest-tagline { font-size: 12px; color: var(--stone); margin-top: 1px; }
+
+  .dest-meta { display: flex; gap: 10px; align-items: center; flex-shrink: 0; }
+  .meta-pill { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: .08em; padding: 3px 8px; border-radius: 4px; }
+  .cost-pill { background: var(--mist); color: var(--stone); border: 0.5px solid var(--rule); }
+
+  .drag-handle { color: var(--rule); font-size: 18px; cursor: grab; padding: 0 2px; flex-shrink: 0; }
+
+  .airbnb-link { font-size: 11px; font-family: 'DM Mono', monospace; color: #cc6800; text-decoration: none; padding: 2px 6px; border-radius: 4px; background: #fdf0e6; border: 0.5px solid #f0c080; transition: background .1s; white-space: nowrap; }
+  .airbnb-link:hover { background: #ffe0b2; }
+  .airbnb-placeholder { font-size: 11px; font-family: 'DM Mono', monospace; color: var(--rule); }
+
+  .notes-section { margin-bottom: 28px; }
+  .notes-section label { font-size: 13px; font-weight: 500; display: block; margin-bottom: 8px; }
+  .notes-section textarea { width: 100%; border: 0.5px solid var(--rule); border-radius: 8px; padding: 10px 14px; font-family: 'DM Sans', sans-serif; font-size: 14px; outline: none; color: var(--ink); background: white; resize: vertical; min-height: 72px; transition: border-color .15s; }
+  .notes-section textarea:focus { border-color: var(--gold); }
+
+  .submit-row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  .submit-btn { background: var(--ink); color: white; border: none; border-radius: 8px; padding: 12px 28px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; cursor: pointer; transition: opacity .15s; }
+  .submit-btn:hover { opacity: .8; }
+  .copy-btn { background: white; color: var(--ink); border: 0.5px solid var(--rule); border-radius: 8px; padding: 12px 20px; font-family: 'DM Sans', sans-serif; font-size: 14px; cursor: pointer; transition: background .15s; }
+  .copy-btn:hover { background: var(--mist); }
+
+  .result-box { display: none; background: white; border-radius: 12px; border: 0.5px solid var(--rule); padding: 20px 24px; margin-top: 20px; }
+  .result-box.visible { display: block; }
+  .result-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--stone); margin-bottom: 8px; }
+  .result-text { font-size: 14px; line-height: 1.7; white-space: pre-wrap; color: var(--ink); }
+
+  .tally-section { background: white; border-radius: 12px; border: 0.5px solid var(--rule); padding: 24px; margin-top: 32px; }
+  .tally-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 16px; }
+  .tally-title { font-weight: 500; font-size: 16px; }
+  .tally-sub { font-size: 12px; color: var(--stone); }
+  .tally-paste { width: 100%; border: 0.5px solid var(--rule); border-radius: 8px; padding: 10px 14px; font-family: 'DM Mono', monospace; font-size: 12px; outline: none; color: var(--stone); background: var(--mist); resize: vertical; min-height: 100px; }
+  .tally-paste:focus { border-color: var(--gold); }
+  .tally-btn { margin-top: 10px; background: white; color: var(--ink); border: 0.5px solid var(--rule); border-radius: 8px; padding: 10px 18px; font-family: 'DM Sans', sans-serif; font-size: 13px; cursor: pointer; transition: background .15s; }
+  .tally-btn:hover { background: var(--mist); }
+  .tally-results { margin-top: 16px; display: none; }
+  .tally-results.visible { display: block; }
+  .tally-bar-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .tally-dest-name { font-size: 13px; font-weight: 500; min-width: 130px; }
+  .tally-bar-track { flex: 1; height: 8px; background: var(--mist); border-radius: 4px; overflow: hidden; }
+  .tally-bar-fill { height: 100%; border-radius: 4px; transition: width .4s; }
+  .tally-pts { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--stone); min-width: 50px; text-align: right; }
+  .winner-label { font-size: 11px; font-family: 'DM Mono', monospace; background: #BA7517; color: white; padding: 2px 7px; border-radius: 4px; }
+
+  .footer-note { margin-top: 20px; font-size: 11px; color: var(--stone); text-align: center; font-style: italic; }
+
+  @media (max-width: 540px) {
+    .dest-meta { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="tab-nav">
+  <div class="tab-nav-inner">
+    <div class="tab-title">⛳ TC6 Fairways and Fluffers 2026</div>
+    <button class="tab-btn active" onclick="switchTab('compare', this)">Destination Guide</button>
+    <button class="tab-btn" onclick="switchTab('vote', this)">Cast Your Vote</button>
+  </div>
+</nav>
+
+<div id="tab-compare" class="tab-panel active">
+<div class="page">
+
+  <div class="masthead">
+    <div class="masthead-eyebrow">8 Guys · Aug 13–16, 2026</div>
+    <h1>Golf Trip<br>Budget & Itinerary Guide</h1>
+    <div class="masthead-sub">Vacation rental lodging · 3 rounds of golf · Nightlife · Est. cost per person</div>
+  </div>
+
+  <!-- ════════════════════════════════════════ -->
+  <!-- 1. MYRTLE BEACH -->
+  <!-- ════════════════════════════════════════ -->
+  <div class="destination mb">
+    <div class="dest-header">
+      <div class="dest-header-left">
+        <div class="dest-num">1</div>
+        <span class="dest-tag">Myrtle Beach, SC</span>
+        <div class="dest-title">The Golf Capital of the World</div>
+        <div class="dest-subtitle">~2 hr flight · 90+ courses · Best value on the list</div>
+      </div>
+      <div class="dest-scores">
+        <div class="score-item"><div class="score-label">Golf</div><div class="score-stars">★★★★★</div></div>
+        <div class="score-item"><div class="score-label">Nightlife</div><div class="score-stars">★★★★★</div></div>
+        <div class="score-item"><div class="score-label">Value</div><div class="score-stars">★★★★★</div></div>
+        <div class="score-item"><div class="score-label">Aug Weather</div><div class="score-stars">★★★☆☆</div></div>
+      </div>
+    </div>
+    <div class="dest-body">
+      <!-- BUDGET -->
+      <div class="dest-section">
+        <div class="section-heading">Budget Estimate · Per Person</div>
+        <div class="budget-row"><span class="budget-label">Vacation rental (4BR house, 3 nights, split 8 ways)</span><span class="budget-val">$140</span></div>
+        <div class="budget-row"><span class="budget-label">Round 1 — TPC Myrtle Beach (w/ cart)</span><span class="budget-val">$95</span></div>
+        <div class="budget-row"><span class="budget-label">Round 2 — Caledonia Golf & Fish Club</span><span class="budget-val">$129</span></div>
+        <div class="budget-row"><span class="budget-label">Round 3 — True Blue Golf Club</span><span class="budget-val">$109</span></div>
+        <div class="budget-row"><span class="budget-label">Meals (3 days, mix eat-in/out)</span><span class="budget-val">$180</span></div>
+        <div class="budget-row"><span class="budget-label">Nightlife / bars (3 nights)</span><span class="budget-val">$200</span></div>
+        <div class="budget-row"><span class="budget-label">Flights (BDL–MYR roundtrip, est.)</span><span class="budget-val">$320</span></div>
+        <div class="budget-row"><span class="budget-label">Car rental / transport (split)</span><span class="budget-val">$60</span></div>
+        <div class="budget-total"><span>Estimated Total Per Person</span><span class="budget-val">~$1,233</span></div>
+        <div class="budget-note">Rental avg ~$375/night for 4BR oceanside home in August (late summer discount). Green fees based on June–Aug 2026 published rates. Tee off early (before 9am) to beat heat.</div>
+        <div class="rental-links">
+          <div class="rental-links-label">Airbnb rentals found (Aug 13–16)</div>
+          <div class="rental-link-row"><span class="rental-num">01</span><a href="https://www.airbnb.com/rooms/1110169562009392530?adults=8&check_in=2026-08-13&check_out=2026-08-16" target="_blank">View Rental #1</a></div>
+          <div class="rental-link-row"><span class="rental-num">02</span><a href="https://www.airbnb.com/rooms/1274647788188479079?adults=8&check_in=2026-08-13&check_out=2026-08-16" target="_blank">View Rental #2</a></div>
+        </div>
+      </div>
+      <!-- ITINERARY -->
+      <div class="dest-section">
+        <div class="section-heading">3-Day Golf Itinerary</div>
+        <div class="day-block">
+          <div class="day-label">Day 1 · Wednesday Aug 13</div>
+          <div class="day-title">Arrival + TPC Myrtle Beach</div>
+          <div class="day-detail">Fly in, check in to rental. 1pm shotgun at TPC Myrtle Beach — Tom Fazio design, PGA Tour history. Evening: grab seafood at Murrells Inlet, then Broadway at the Beach.</div>
+        </div>
+        <div class="day-block">
+          <div class="day-label">Day 2 · Thursday Aug 14</div>
+          <div class="day-title">Caledonia Golf & Fish Club</div>
+          <div class="day-detail">7:30am tee time at Caledonia — Top 100 Mike Strantz design, colonial rice plantation setting. Afternoon: pool/beach recovery. Evening: House of Blues or Ocean Annies beach bar.</div>
+        </div>
+        <div class="day-block">
+          <div class="day-label">Day 3 · Friday Aug 15</div>
+          <div class="day-title">True Blue + Last Night Out</div>
+          <div class="day-detail">7am tee time at True Blue (sister course to Caledonia, equally ranked). Afternoon: SkyWheel boardwalk, dinner at Hook & Barrel. Big final night on the strip.</div>
+        </div>
+        <div class="day-block">
+          <div class="day-label">Day 4 · Saturday Aug 16</div>
+          <div class="day-title">Checkout + Departure</div>
+          <div class="day-detail">Optional sunrise beach walk or replay round at discounted rate. Afternoon flights home.</div>
+        </div>
+      </div>
+      <!-- NIGHTLIFE -->
+      <div class="dest-section">
+        <div class="section-heading">Top Nightlife Spots</div>
+        <div class="spot"><span class="spot-icon">🎸</span><div class="spot-info"><div class="spot-name">House of Blues</div><div class="spot-desc">Live music nightly, national acts, packed bar scene at Broadway at the Beach</div></div></div>
+        <div class="spot"><span class="spot-icon">🍺</span><div class="spot-info"><div class="spot-name">Ocean Annies Beach Bar</div><div class="spot-desc">Legendary outdoor beach bar, live bands, sunset drinks on the water</div></div></div>
+        <div class="spot"><span class="spot-icon">🎰</span><div class="spot-info"><div class="spot-name">Broadway at the Beach</div><div class="spot-desc">Central hub — bars, restaurants, entertainment, shops all in one complex</div></div></div>
+        <div class="spot"><span class="spot-icon">🦀</span><div class="spot-info"><div class="spot-name">Murrells Inlet Marshwalk</div><div class="spot-desc">"Seafood Capital of SC" — row of waterfront restaurants & bars, 20 min south</div></div></div>
+        <div class="spot"><span class="spot-icon">🎵</span><div class="spot-info"><div class="spot-name">Barefoot Landing</div><div class="spot-desc">Waterside entertainment complex, restaurants and late-night bars</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════ -->
+  <!-- 2. ATLANTIC CITY -->
+  <!-- ════════════════════════════════════════ -->
+  <div class="destination ac">
+    <div class="dest-header">
+      <div class="dest-header-left">
+        <div class="dest-num">2</div>
+        <span class="dest-tag">Atlantic City, NJ</span>
+        <div class="dest-title">Casino + Beach + No Flight Needed</div>
+        <div class="dest-subtitle">~3.5 hr drive · Easiest trip to pull off · Great nightlife</div>
+      </div>
+      <div class="dest-scores">
+        <div class="score-item"><div class="score-label">Golf</div><div class="score-stars">★★★★☆</div></div>
+        <div class="score-item"><div class="score-label">Nightlife</div><div class="score-stars">★★★★★</div></div>
+        <div class="score-item"><div class="score-label">Value</div><div class="score-stars">★★★★☆</div></div>
+        <div class="score-item"><div class="score-label">Aug Weather</div><div class="score-stars">★★★★☆</div></div>
+      </div>
+    </div>
+    <div class="dest-body">
+      <div class="dest-section">
+        <div class="section-heading">Budget Estimate · Per Person</div>
+        <div class="budget-row"><span class="budget-label">Vacation rental (4BR house, 3 nights, split 8 ways)</span><span class="budget-val">$185</span></div>
+        <div class="budget-row"><span class="budget-label">Round 1 — Atlantic City Country Club</span><span class="budget-val">$165</span></div>
+        <div class="budget-row"><span class="budget-label">Round 2 — Seaview Bay Course (LPGA host)</span><span class="budget-val">$120</span></div>
+        <div class="budget-row"><span class="budget-label">Round 3 — Twisted Dune Golf Club</span><span class="budget-val">$90</span></div>
+        <div class="budget-row"><span class="budget-label">Meals (3 days)</span><span class="budget-val">$200</span></div>
+        <div class="budget-row"><span class="budget-label">Nightlife / casinos (3 nights)</span><span class="budget-val">$250</span></div>
+        <div class="budget-row"><span class="budget-label">Gas / transport (carpool from CT)</span><span class="budget-val">$45</span></div>
+        <div class="budget-total"><span>Estimated Total Per Person</span><span class="budget-val">~$1,055</span></div>
+        <div class="budget-note">Rental avg $350–500/night for 8-person home in August. No flights needed — just carpool. Nightlife budget assumes casino play. ACCC rates are current 2026 pricing.</div>
+        <div class="rental-links">
+          <div class="rental-links-label">Airbnb rentals found (Aug 13–16)</div>
+          <div class="rental-link-row"><span class="rental-num">01</span><a href="https://www.airbnb.com/rooms/1048999586412435360?adults=8&check_in=2026-08-13&check_out=2026-08-16" target="_blank">View Rental #1</a></div>
+          <div class="rental-link-row"><span class="rental-num">02</span><a href="https://www.airbnb.com/rooms/43387713?adults=8&check_in=2026-08-13&check_out=2026-08-16" target="_blank">View Rental #2</a></div>
+          <div class="rental-link-row"><span class="rental-num">03</span><a href="https://www.airbnb.com/rooms/907325867973043437?adults=8&check_in=2026-08-13&check_out=2026-08-16" target="_blank">View Rental #3</a></div>
+        </div>
+      </div>
+      <div class="dest-section">
+        <div class="section-heading">3-Day Golf Itinerary</div>
+        <div class="day-block">
+          <div class="day-label">Day 1 · Wednesday Aug 13</div>
+          <div class="day-title">Drive down + AC Country Club</div>
+          <div class="day-detail">Depart CT early AM, arrive by 10am. 12pm tee time at Atlantic City Country Club — the birthplace of "birdie," historic 1897 layout routed through salt marshes with skyline views. Check in, head to Borgata for dinner.</div>
+        </div>
+        <div class="day-block">
+          <div class="day-label">Day 2 · Thursday Aug 14</div>
+          <div class="day-title">Seaview Resort + Boardwalk</div>
+          <div class="day-detail">8am tee at Seaview Bay Course — classic tree-lined layout, host of LPGA events. Afternoon: Atlantic City boardwalk, beach time. Evening: casino crawl (Borgata, Hard Rock, Ocean Resort).</div>
+        </div>
+        <div class="day-block">
+          <div class="day-label">Day 3 · Friday Aug 15</div>
+          <div class="day-title">Twisted Dune + Final Night</div>
+          <div class="day-detail">9am tee time at Twisted Dune — dramatic dune-framed layout, regarded as top value course in South Jersey. Afternoon beach / pool. Big final night at Hard Rock live music + casino floor.</div>
+        </div>
+        <div class="day-block">
+          <div class="day-label">Day 4 · Saturday Aug 16</div>
+          <div class="day-title">Checkout + Drive Home</div>
+          <div class="day-detail">Late breakfast at a boardwalk spot. Drive home — back in CT by mid-afternoon.</div>
+        </div>
+      </div>
+      <div class="dest-section">
+        <div class="section-heading">Top Nightlife Spots</div>
+        <div class="spot"><span class="spot-icon">🎲</span><div class="spot-info"><div class="spot-name">Borgata Hotel Casino</div><div class="spot-desc">AC's best casino — multiple bars, BorgataLive concert venue, excellent restaurants, lively table games</div></div></div>
+        <div class="spot"><span class="spot-icon">🎸</span><div class="spot-info"><div class="spot-name">Hard Rock Hotel & Casino</div><div class="spot-desc">Live music most nights at Hard Rock Live, energetic casino floor, rooftop pool bar</div></div></div>
+        <div class="spot"><span class="spot-icon">🌊</span><div class="spot-info"><div class="spot-name">Ocean Casino Resort</div><div class="spot-desc">Tallest building in NJ, rooftop bars with ocean views, HQ Beach Club pool party scene</div></div></div>
+        <div class="spot"><span class="spot-icon">🎹</span><div class="spot-info"><div class="spot-name">Howl at the Moon</div><div class="spot-desc">Dueling piano bar on the boardwalk — high-energy, great for groups</div></div></div>
+        <div class="spot"><span class="spot-icon">🎭</span><div class="spot-info"><div class="spot-name">The Boardwalk</div><div class="spot-desc">Classic AC strip — bars, restaurants, live performers, casino crawl all within walking distance</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════ -->
+  <!-- 3. TRAVERSE CITY -->
+  <!-- ════════════════════════════════════════ -->
+  <div class="destination tc">
+    <div class="dest-header">
+      <div class="dest-header-left">
+        <div class="dest-num">3</div>
+        <span class="dest-tag">Traverse City, MI</span>
+        <div class="dest-title">Golf Magazine Top 6 Destination</div>
+        <div class="dest-subtitle">~2.5 hr flight via Detroit · Best August weather · 30+ courses</div>
+      </div>
+      <div class="dest-scores">
+        <div class="score-item"><div class="score-label">Golf</div><div class="score-stars">★★★★★</div></div>
+        <div class="score-item"><div class="score-label">Nightlife</div><div class="score-stars">★★★☆☆</div></div>
+        <div class="score-item"><div class="score-label">Value</div><div class="score-stars">★★★★☆</div></div>
+        <div class="score-item"><div class="score-label">Aug Weather</div><div class="score-stars">★★★★★</div></div>
+      </div>
+    </div>
+    <div class="dest-body">
+      <div class="dest-section">
+        <div class="section-heading">Budget Estimate · Per Person</div>
+        <div class="budget-row"><span class="budget-label">Vacation rental (4BR lakehouse, 3 nights, split 8 ways)</span><span class="budget-val">$160</span></div>
+        <div class="budget-row"><span class="budget-label">Round 1 — The Bear, Grand Traverse Resort (Nicklaus)</span><span class="budget-val">$155</span></div>
+        <div class="budget-row"><span class="budget-label">Round 2 — The Wolverine (Gary Player)</span><span class="budget-val">$120</span></div>
+        <div class="budget-row"><span class="budget-label">Round 3 — Antrim Dells or Torch (4.5★ Golf Digest)</span><span class="budget-val">$85</span></div>
+        <div class="budget-row"><span class="budget-label">Meals (3 days — excellent dining scene)</span><span class="budget-val">$200</span></div>
+        <div class="budget-row"><span class="budget-label">Nightlife / bars / wineries (3 nights)</span><span class="budget-val">$175</span></div>
+        <div class="budget-row"><span class="budget-label">Flights (BDL–TVC via DTW, est.)</span><span class="budget-val">$380</span></div>
+        <div class="budget-row"><span class="budget-label">Car rental (split)</span><span class="budget-val">$55</span></div>
+        <div class="budget-total"><span>Estimated Total Per Person</span><span class="budget-val">~$1,330</span></div>
+        <div class="budget-note">Rental avg ~$400–450/night for 4BR lakefront home in peak August. The Bear green fees include cart. Food & Wine Festival Aug 19–23 overlaps your dates — bonus events region-wide.</div>
+        <div class="rental-links">
+          <div class="rental-links-label">Airbnb rentals found (Aug 13–16)</div>
+          <div class="rental-link-row"><span class="rental-num">01</span><a href="https://www.airbnb.com/rooms/884871198767444282?adults=8&check_in=2026-08-13&check_out=2026-08-16" target="_blank">View Rental #1</a></div>
+          <div class="rental-link-row"><span class="rental-num">02</span><a href="https://www.airbnb.com/rooms/54041341?adults=8&check_in=2026-08-13&check_out=2026-08-16" target="_blank">View Rental #2</a></div>
+          <div class="rental-link-row"><span class="rental-num">03</span><a href="https://www.airbnb.com/rooms/974543764204318406?adults=8&check_in=2026-08-13&check_out=2026-08-16" target="_blank">View Rental #3</a></div>
+        </div>
+      </div>
+      <div class="dest-section">
+        <div class="section-heading">3-Day Golf Itinerary</div>
+        <div class="day-block">
+          <div class="day-label">Day 1 · Wednesday Aug 13</div>
+          <div class="day-title">Fly in + The Bear (Nicklaus)</div>
+          <div class="day-detail">Fly BDL → DTW → TVC. Check in to lakefront rental. 2pm tee at The Bear — Jack Nicklaus design at Grand Traverse Resort, 28-time host of the Michigan Open, with tiered greens and deep pot bunkers. Dinner downtown on Front Street.</div>
+        </div>
+        <div class="day-block">
+          <div class="day-label">Day 2 · Thursday Aug 14</div>
+          <div class="day-title">The Wolverine + Wine Country</div>
+          <div class="day-detail">7:30am tee at The Wolverine (Gary Player design, same resort). Afternoon: explore Old Mission Peninsula wine trail — 20+ tasting rooms within 30 miles. Evening: Low Bar speakeasy or 7 Monks Taproom in downtown TC.</div>
+        </div>
+        <div class="day-block">
+          <div class="day-label">Day 3 · Friday Aug 15</div>
+          <div class="day-title">Antrim Dells + Food & Wine Fest</div>
+          <div class="day-detail">8am tee time at Antrim Dells (Golf Digest 4.5★, former Michigan Amateur host). Afternoon: Sleeping Bear Dunes or Grand Traverse Bay beach. Evening: Food & Wine Festival events — chef dinners, winery tastings, live music across the region.</div>
+        </div>
+        <div class="day-block">
+          <div class="day-label">Day 4 · Saturday Aug 16</div>
+          <div class="day-title">Morning round + Departure</div>
+          <div class="day-detail">Optional sunrise round at Spruce Run or replay at discount rate. TVC → DTW → BDL afternoon flights.</div>
+        </div>
+      </div>
+      <div class="dest-section">
+        <div class="section-heading">Top Nightlife Spots</div>
+        <div class="spot"><span class="spot-icon">🍸</span><div class="spot-info"><div class="spot-name">Low Bar</div><div class="spot-desc">Award-winning speakeasy beneath 7 Monks Taproom — 200+ rare spirits, dark moody atmosphere, craft cocktails</div></div></div>
+        <div class="spot"><span class="spot-icon">🍺</span><div class="spot-info"><div class="spot-name">7 Monks Taproom</div><div class="spot-desc">46 beers on tap, great pub food, lively crowd — the anchor of downtown TC nightlife</div></div></div>
+        <div class="spot"><span class="spot-icon">🎶</span><div class="spot-info"><div class="spot-name">The Little Fleet</div><div class="spot-desc">Outdoor food truck park and bar with live music nightly in summer — great group hangout</div></div></div>
+        <div class="spot"><span class="spot-icon">🎸</span><div class="spot-info"><div class="spot-name">Union Street Station</div><div class="spot-desc">Live music since 1891 — local and regional acts, classic bar atmosphere, open late</div></div></div>
+        <div class="spot"><span class="spot-icon">🥃</span><div class="spot-info"><div class="spot-name">Traverse City Whiskey Co.</div><div class="spot-desc">Local craft distillery tasting room — a must for whiskey fans, cocktails made with Michigan grain</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════ -->
+  <!-- 4. CHICAGO -->
+  <!-- ════════════════════════════════════════ -->
+  <div class="destination ch">
+    <div class="dest-header">
+      <div class="dest-header-left">
+        <div class="dest-num">4</div>
+        <span class="dest-tag">Chicago, IL</span>
+        <div class="dest-title">Best Golf City in America + World-Class Nights</div>
+        <div class="dest-subtitle">~2.5 hr direct flight · Golf Digest #1 public golf city · Unmatched city experience</div>
+      </div>
+      <div class="dest-scores">
+        <div class="score-item"><div class="score-label">Golf</div><div class="score-stars">★★★★★</div></div>
+        <div class="score-item"><div class="score-label">Nightlife</div><div class="score-stars">★★★★★</div></div>
+        <div class="score-item"><div class="score-label">Value</div><div class="score-stars">★★★★☆</div></div>
+        <div class="score-item"><div class="score-label">Aug Weather</div><div class="score-stars">★★★★☆</div></div>
+      </div>
+    </div>
+    <div class="dest-body">
+      <div class="dest-section">
+        <div class="section-heading">Budget Estimate · Per Person</div>
+        <div class="budget-row"><span class="budget-label">Vacation rental (4BR city home, 3 nights, split 8 ways)</span><span class="budget-val">$175</span></div>
+        <div class="budget-row"><span class="budget-label">Round 1 — Cog Hill Dubsdread (PGA Tour host)</span><span class="budget-val">$165</span></div>
+        <div class="budget-row"><span class="budget-label">Round 2 — The Glen Club (Tom Fazio)</span><span class="budget-val">$175</span></div>
+        <div class="budget-row"><span class="budget-label">Round 3 — Harborside International (36-hole facility)</span><span class="budget-val">$85</span></div>
+        <div class="budget-row"><span class="budget-label">Meals (3 days — world-class dining)</span><span class="budget-val">$260</span></div>
+        <div class="budget-row"><span class="budget-label">Nightlife / bars (3 nights)</span><span class="budget-val">$225</span></div>
+        <div class="budget-row"><span class="budget-label">Flights (BDL–ORD roundtrip, est.)</span><span class="budget-val">$350</span></div>
+        <div class="budget-row"><span class="budget-label">Rental car / Uber (suburban courses)</span><span class="budget-val">$80</span></div>
+        <div class="budget-total"><span>Estimated Total Per Person</span><span class="budget-val">~$1,515</span></div>
+        <div class="budget-note">City rental avg ~$350–450/night for 4BR home near River North or Wicker Park. Cog Hill and Glen Club rates are current 2026 pricing. Note: Kohler (Whistling Straits) is a 1.5-hr day trip option — add ~$350–500/person for a bucket-list round.</div>
+        <div class="rental-links">
+          <div class="rental-links-label">Airbnb rentals found (Aug 13–16)</div>
+          <div class="rental-link-row"><span class="rental-num">01</span><a href="https://www.airbnb.com/rooms/789442526589047108?adults=8&check_in=2026-08-13&check_out=2026-08-16" target="_blank">View Rental #1</a></div>
+          <div class="rental-link-row"><span class="rental-num">02</span><a href="https://www.airbnb.com/rooms/40227873?adults=8&check_in=2026-08-13&check_out=2026-08-16" target="_blank">View Rental #2</a></div>
+          <div class="rental-link-row"><span class="rental-num">03</span><a href="https://www.airbnb.com/rooms/1042229537028674065?adults=8&check_in=2026-08-13&check_out=2026-08-16" target="_blank">View Rental #3</a></div>
+        </div>
+      </div>
+      <div class="dest-section">
+        <div class="section-heading">3-Day Golf Itinerary</div>
+        <div class="day-block">
+          <div class="day-label">Day 1 · Wednesday Aug 13</div>
+          <div class="day-title">Fly in + Cog Hill Dubsdread</div>
+          <div class="day-detail">Direct BDL→ORD. 12pm tee at Cog Hill Course 4 (Dubsdread) — longtime BMW Championship host, one of the premier public courses in the country. Dinner: Gibson's Bar & Steakhouse (iconic Chicago institution). Nightcap in River North.</div>
+        </div>
+        <div class="day-block">
+          <div class="day-label">Day 2 · Thursday Aug 14</div>
+          <div class="day-title">The Glen Club + Wrigley</div>
+          <div class="day-detail">8am tee at The Glen Club — Tom Fazio masterpiece on Chicago's North Shore, consistently ranked top 5 in Illinois. Afternoon: optional Cubs game at Wrigley Field (August home game — check schedule). Evening: Wicker Park bar crawl.</div>
+        </div>
+        <div class="day-block">
+          <div class="day-label">Day 3 · Friday Aug 15</div>
+          <div class="day-title">Harborside + Final City Night</div>
+          <div class="day-detail">8am tee at Harborside International (spectacular 36-hole facility with Chicago skyline views from the course). Afternoon: Chicago Riverwalk, Navy Pier, deep dish pizza at Lou Malnati's. Big final night — start in West Loop, end in River North clubs.</div>
+        </div>
+        <div class="day-block">
+          <div class="day-label">Day 4 · Saturday Aug 16</div>
+          <div class="day-title">Brunch + Departure</div>
+          <div class="day-detail">Brunch at an iconic Chicago spot (Girl & the Goat or Au Cheval). ORD→BDL afternoon flight.</div>
+        </div>
+      </div>
+      <div class="dest-section">
+        <div class="section-heading">Top Nightlife Spots</div>
+        <div class="spot"><span class="spot-icon">🥩</span><div class="spot-info"><div class="spot-name">Gibson's Bar & Steakhouse</div><div class="spot-desc">Chicago institution since 1989 — legendary steaks, classic bar scene, great for a group dinner</div></div></div>
+        <div class="spot"><span class="spot-icon">🌴</span><div class="spot-info"><div class="spot-name">Three Dots and a Dash</div><div class="spot-desc">Award-winning tiki bar in River North — extraordinary cocktails, one of the best bars in the US</div></div></div>
+        <div class="spot"><span class="spot-icon">🎵</span><div class="spot-info"><div class="spot-name">Howl at the Moon</div><div class="spot-desc">Dueling piano bar on Hubbard Street — packed, high-energy, perfect for groups</div></div></div>
+        <div class="spot"><span class="spot-icon">🏙️</span><div class="spot-info"><div class="spot-name">Godfrey Hotel Rooftop (I|O)</div><div class="spot-desc">Best rooftop bar in Chicago — skyline views, pool scene in summer, upscale crowd</div></div></div>
+        <div class="spot"><span class="spot-icon">🍕</span><div class="spot-info"><div class="spot-name">Wicker Park Bar Crawl</div><div class="spot-desc">Start at The Violet Hour (iconic speakeasy), work down Division St — craft cocktails, indie bars, late-night energy</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════ -->
+  <!-- 5. SAN DIEGO -->
+  <!-- ════════════════════════════════════════ -->
+  <div class="destination sd">
+    <div class="dest-header">
+      <div class="dest-header-left">
+        <div class="dest-num">5</div>
+        <span class="dest-tag">San Diego, CA</span>
+        <div class="dest-title">Perfect Weather · US Open Venue · West Coast Adventure</div>
+        <div class="dest-subtitle">~6 hr cross-country flight · 76°F in August · Torrey Pines bucket list</div>
+      </div>
+      <div class="dest-scores">
+        <div class="score-item"><div class="score-label">Golf</div><div class="score-stars">★★★★★</div></div>
+        <div class="score-item"><div class="score-label">Nightlife</div><div class="score-stars">★★★★☆</div></div>
+        <div class="score-item"><div class="score-label">Value</div><div class="score-stars">★★★☆☆</div></div>
+        <div class="score-item"><div class="score-label">Aug Weather</div><div class="score-stars">★★★★★</div></div>
+      </div>
+    </div>
+    <div class="dest-body">
+      <div class="dest-section">
+        <div class="section-heading">Budget Estimate · Per Person</div>
+        <div class="budget-row"><span class="budget-label">Vacation rental (4BR La Jolla/Pacific Beach, 3 nights)</span><span class="budget-val">$250</span></div>
+        <div class="budget-row"><span class="budget-label">Round 1 — Torrey Pines South (non-resident + fees)</span><span class="budget-val">$400</span></div>
+        <div class="budget-row"><span class="budget-label">Round 2 — Torrey Pines North (or Aviara)</span><span class="budget-val">$215</span></div>
+        <div class="budget-row"><span class="budget-label">Round 3 — Omni La Costa North Course</span><span class="budget-val">$130</span></div>
+        <div class="budget-row"><span class="budget-label">Meals (3 days — SoCal dining)</span><span class="budget-val">$240</span></div>
+        <div class="budget-row"><span class="budget-label">Nightlife / bars (3 nights)</span><span class="budget-val">$225</span></div>
+        <div class="budget-row"><span class="budget-label">Flights (BDL–SAN roundtrip, est.)</span><span class="budget-val">$520</span></div>
+        <div class="budget-row"><span class="budget-label">Car rental (essential in SD, split)</span><span class="budget-val">$75</span></div>
+        <div class="budget-total"><span>Estimated Total Per Person</span><span class="budget-val">~$2,055</span></div>
+        <div class="budget-note">Rental avg ~$500–600/night for 4BR home in La Jolla or Pacific Beach in August. Torrey Pines South non-resident fee is $322 (Fri–Sun) + $52 booking fee + $49 service fee + $48 cart. Book tee times exactly 4 days in advance — only window available to non-residents.</div>
+        <div class="rental-links">
+          <div class="rental-links-label">Airbnb rentals found (Aug 13–16)</div>
+          <div class="rental-link-row"><span class="rental-num">01</span><a href="https://www.airbnb.com/rooms/1374756913998099521?adults=8&check_in=2026-08-13&check_out=2026-08-16" target="_blank">View Rental #1</a></div>
+          <div class="rental-link-row"><span class="rental-num">02</span><a href="https://www.airbnb.com/rooms/1150245534132859641?adults=8&check_in=2026-08-13&check_out=2026-08-16" target="_blank">View Rental #2</a></div>
+          <div class="rental-link-row"><span class="rental-num">03</span><a href="https://www.airbnb.com/rooms/1477686464454258075?adults=8&check_in=2026-08-13&check_out=2026-08-16" target="_blank">View Rental #3</a></div>
+        </div>
+      </div>
+      <div class="dest-section">
+        <div class="section-heading">3-Day Golf Itinerary</div>
+        <div class="day-block">
+          <div class="day-label">Day 1 · Wednesday Aug 13</div>
+          <div class="day-title">Fly in + Torrey Pines North</div>
+          <div class="day-detail">Morning departure BDL, arrive SAN by noon (West Coast). Check in to La Jolla rental. 3:30pm tee at Torrey Pines North — the more scenic of the two, dramatic canyon and ocean views. Sunset dinner in La Jolla Cove area. Drinks on Prospect Street.</div>
+        </div>
+        <div class="day-block">
+          <div class="day-label">Day 2 · Thursday Aug 14</div>
+          <div class="day-title">Torrey Pines South — Bucket List Day</div>
+          <div class="day-detail">7am tee at Torrey Pines South — 2008 and 2021 US Open host, Tiger Woods won here on a broken leg. Walk the same fairways as the world's best players. 5.5 hour round expected. Afternoon: Coronado Island beach. Evening: Gaslamp Quarter bar crawl.</div>
+        </div>
+        <div class="day-block">
+          <div class="day-label">Day 3 · Friday Aug 15</div>
+          <div class="day-title">Omni La Costa + Pacific Beach</div>
+          <div class="day-detail">8am tee at Omni La Costa North Course — recently renovated, host of NCAA Championships, plush SoCal resort conditions. Afternoon: Mission Beach or Pacific Beach boardwalk. Final night: craft brewery scene in North Park, then downtown Gaslamp.</div>
+        </div>
+        <div class="day-block">
+          <div class="day-label">Day 4 · Saturday Aug 16</div>
+          <div class="day-title">Morning + Departure</div>
+          <div class="day-detail">Optional early round at Coronado Golf Course ($60, next to Hotel del Coronado). SAN → BDL evening flight. Long travel day — plan for red-eye or connecting flights.</div>
+        </div>
+      </div>
+      <div class="dest-section">
+        <div class="section-heading">Top Nightlife Spots</div>
+        <div class="spot"><span class="spot-icon">🌆</span><div class="spot-info"><div class="spot-name">Gaslamp Quarter</div><div class="spot-desc">Downtown SD's main entertainment district — 16 blocks of bars, clubs, restaurants, and rooftops. Start at Café Sevilla or FLUXX.</div></div></div>
+        <div class="spot"><span class="spot-icon">🍺</span><div class="spot-info"><div class="spot-name">North Park Craft Beer Scene</div><div class="spot-desc">SD is America's craft beer capital — Belching Beaver, Modern Times, and 20+ breweries all within walking distance</div></div></div>
+        <div class="spot"><span class="spot-icon">🌊</span><div class="spot-info"><div class="spot-name">Pacific Beach Bar Crawl</div><div class="spot-desc">PB is the quintessential SoCal beach bar scene — Tavern, JRDN rooftop, The Blarney Stone along Garnet Ave</div></div></div>
+        <div class="spot"><span class="spot-icon">🦞</span><div class="spot-info"><div class="spot-name">Puesto La Jolla</div><div class="spot-desc">Best tacos in SD with a stunning ocean view — perfect for the group dinner, great margs</div></div></div>
+        <div class="spot"><span class="spot-icon">🎵</span><div class="spot-info"><div class="spot-name">Petco Park Area</div><div class="spot-desc">If a Padres game is on, this area goes electric — great bars pre/post game around East Village</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════ -->
+  <!-- SUMMARY TABLE -->
+  <!-- ════════════════════════════════════════ -->
+  <div class="summary-table-wrap">
+    <div class="summary-heading">Side-by-Side Summary</div>
+    <div class="summary-sub">All costs estimated per person for 8 guys, 3 nights, Aug 13–16, 2026 · Vacation rental + 3 rounds of golf + meals + nightlife + travel</div>
+    <table class="summary">
+      <thead>
+        <tr>
+          <th>Destination</th>
+          <th>Lodging / person</th>
+          <th>Golf (3 rounds)</th>
+          <th>Flights</th>
+          <th>Food + Nightlife</th>
+          <th>Est. Total / Person</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="dest-pill"><span class="dest-dot" style="background:#1a6b3a"></span><strong>Myrtle Beach</strong></span></td>
+          <td><span class="price-highlight">$140</span></td>
+          <td><span class="price-highlight">$333</span></td>
+          <td><span class="price-highlight">$320</span></td>
+          <td><span class="price-highlight">$380</span></td>
+          <td><span class="price-highlight" style="font-size:15px;color:#1a6b3a"><strong>~$1,233</strong></span></td>
+          <td><span class="best-tag">Best Value</span> Late-summer rental discounts apply</td>
+        </tr>
+        <tr>
+          <td><span class="dest-pill"><span class="dest-dot" style="background:#1a3d6b"></span><strong>Atlantic City</strong></span></td>
+          <td><span class="price-highlight">$185</span></td>
+          <td><span class="price-highlight">$375</span></td>
+          <td><span class="price-highlight">$45</span></td>
+          <td><span class="price-highlight">$450</span></td>
+          <td><span class="price-highlight" style="font-size:15px;color:#1a3d6b"><strong>~$1,055</strong></span></td>
+          <td><span class="best-tag">Cheapest Overall</span> Drive from CT, no flights</td>
+        </tr>
+        <tr>
+          <td><span class="dest-pill"><span class="dest-dot" style="background:#3d6b1a"></span><strong>Traverse City</strong></span></td>
+          <td><span class="price-highlight">$160</span></td>
+          <td><span class="price-highlight">$360</span></td>
+          <td><span class="price-highlight">$380</span></td>
+          <td><span class="price-highlight">$375</span></div></td>
+          <td><span class="price-highlight" style="font-size:15px;color:#3d6b1a"><strong>~$1,330</strong></span></td>
+          <td>Food & Wine Festival Aug 19–23 overlap</td>
+        </tr>
+        <tr>
+          <td><span class="dest-pill"><span class="dest-dot" style="background:#8b1a4a"></span><strong>Chicago</strong></span></td>
+          <td><span class="price-highlight">$175</span></td>
+          <td><span class="price-highlight">$425</span></td>
+          <td><span class="price-highlight">$350</span></td>
+          <td><span class="price-highlight">$485</span></td>
+          <td><span class="price-highlight" style="font-size:15px;color:#8b1a4a"><strong>~$1,515</strong></span></td>
+          <td>Add ~$400 if day-tripping to Whistling Straits (Kohler)</td>
+        </tr>
+        <tr>
+          <td><span class="dest-pill"><span class="dest-dot" style="background:#b85c00"></span><strong>San Diego</strong></span></td>
+          <td><span class="price-highlight">$250</span></td>
+          <td><span class="price-highlight">$745</span></td>
+          <td><span class="price-highlight">$520</span></td>
+          <td><span class="price-highlight">$465</span></td>
+          <td><span class="price-highlight" style="font-size:15px;color:#b85c00"><strong>~$2,055</strong></span></td>
+          <td><span class="warn-tag">Priciest</span> Torrey Pines non-resident fees are significant</td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="margin-top:20px;padding:16px;background:#f7f5f0;border-left:3px solid var(--gold);font-size:12px;color:var(--stone);line-height:1.7;">
+      <strong style="color:var(--ink);">Notes on estimates:</strong> All figures are approximate and based on current 2026 published rates, Airbnb/VRBO market averages, and typical August spending patterns for groups of 8. Vacation rental costs assume a 4–5 bedroom home split 8 ways for 3 nights. Golf fees include cart where applicable. Flights are estimated roundtrip from BDL (Bradley International, Hartford CT). Nightlife/food budgets are realistic for middle-aged guys who enjoy a good night out without going overboard. Actual costs may vary by booking timing, specific property choice, and group spending habits.
+    </div>
+  </div>
+
+</div>
+</div>
+</div>
+<style>
+.live-badge{display:inline-flex;align-items:center;gap:6px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#1a6b3a;background:#e8f5ee;border:0.5px solid #9FE1CB;border-radius:4px;padding:3px 10px;}
+.live-dot{width:6px;height:6px;border-radius:50%;background:#1D9E75;animation:lpulse 1.5s infinite;}
+@keyframes lpulse{0%,100%{opacity:1;}50%{opacity:.3;}}
+.voter-row{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px dotted #ddd9d0;font-size:13px;}
+.voter-row:last-child{border-bottom:none;}
+.voter-avatar{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:500;font-size:11px;flex-shrink:0;color:white;}
+.voter-name-cell{flex:1;font-weight:500;}
+.voter-picks{font-size:11px;color:#8a8680;font-family:'DM Mono',monospace;}
+.voted-pill{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;background:#e8f5ee;color:#1a6b3a;padding:2px 7px;border-radius:4px;}
+.result-banner{background:#e8f5ee;border:1px solid #9FE1CB;border-radius:10px;padding:20px 24px;margin-bottom:24px;text-align:center;display:none;}
+.result-banner.visible{display:block;}
+.result-banner-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:#0F6E56;margin-bottom:6px;}
+.result-banner-dest{font-family:'Playfair Display',serif;font-size:30px;font-weight:700;color:#085041;margin-bottom:4px;}
+.result-banner-sub{font-size:13px;color:#0F6E56;}
+.already-voted{background:#fff8e8;border:1px solid #f0c080;border-radius:10px;padding:14px 18px;margin-bottom:20px;font-size:13px;color:#633806;display:none;}
+.already-voted.visible{display:block;}
+.live-section{background:white;border-radius:12px;border:0.5px solid #ddd9d0;padding:24px;margin-top:24px;}
+.live-section-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:8px;}
+.live-section-title{font-weight:500;font-size:15px;}
+.tally-bar-row2{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.tally-dest-name2{font-size:13px;font-weight:500;min-width:130px;}
+.tally-bar-track2{flex:1;height:10px;background:#f7f5f0;border-radius:5px;overflow:hidden;}
+.tally-bar-fill2{height:100%;border-radius:5px;transition:width .6s ease;}
+.tally-pts2{font-family:'DM Mono',monospace;font-size:12px;color:#8a8680;min-width:52px;text-align:right;}
+.winner-lbl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;background:#BA7517;color:white;padding:2px 7px;border-radius:3px;margin-right:5px;}
+.refresh-btn{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;background:none;border:0.5px solid #ddd9d0;border-radius:6px;padding:5px 12px;cursor:pointer;color:#8a8680;transition:background .15s;}
+.refresh-btn:hover{background:#f7f5f0;}
+.setup-warning{background:#fff3cd;border:1px solid #ffc107;border-radius:10px;padding:14px 18px;margin-bottom:20px;font-size:13px;color:#856404;display:none;}
+.setup-warning.visible{display:block;}
+</style>
+
+<div class="page">
+  <div class="masthead">
+    <div class="eyebrow">TC6 Fairways and Fluffers 2026 · Aug 13–16</div>
+    <h1>Cast Your Vote</h1>
+    <p>Rank all 5 destinations from your most to least favorite. Votes are saved instantly — everyone sees live results below.</p>
+    <div class="how-it-works">
+      <strong>How ranked choice works</strong>
+      Drag destinations into your preferred order — #1 = most wanted. Scoring: 1st = 5pts, 2nd = 4pts, 3rd = 3pts, 4th = 2pts, 5th = 1pt. Highest total wins.
+    </div>
+  </div>
+
+  <div class="setup-warning" id="setup-warning">
+    ⚠️ Backend not configured yet — votes won't be saved. Add your JSONbin credentials to the script to enable live voting.
+  </div>
+
+  <div class="already-voted" id="already-voted">
+    ✅ You've already submitted your vote! Scroll down to see the live results.
+  </div>
+
+  <div class="name-section">
+    <label for="voter-name">Your name</label>
+    <input type="text" id="voter-name" placeholder="e.g. Mike" autocomplete="off">
+  </div>
+
+  <div class="instructions">Drag to rank — #1 is your top choice</div>
+
+  <div class="dest-list" id="dest-list">
+    <div class="dest-card" draggable="true" data-id="mb">
+      <div class="drag-handle">⠿</div><div class="rank-badge" id="badge-mb">1</div>
+      <div class="dest-color-bar mb-bar"></div>
+      <div class="dest-info"><div class="dest-name">Myrtle Beach, SC</div><div class="dest-tagline">Golf Capital of the World · 90+ courses · Best value</div></div>
+      <div class="dest-meta"><span class="meta-pill cost-pill">~$1,233/pp</span></div>
+    </div>
+    <div class="dest-card" draggable="true" data-id="ac">
+      <div class="drag-handle">⠿</div><div class="rank-badge" id="badge-ac">2</div>
+      <div class="dest-color-bar ac-bar"></div>
+      <div class="dest-info"><div class="dest-name">Atlantic City, NJ</div><div class="dest-tagline">Casino + beach · Drive from CT · No flights needed</div></div>
+      <div class="dest-meta"><span class="meta-pill cost-pill">~$1,055/pp</span></div>
+    </div>
+    <div class="dest-card" draggable="true" data-id="tc">
+      <div class="drag-handle">⠿</div><div class="rank-badge" id="badge-tc">3</div>
+      <div class="dest-color-bar tc-bar"></div>
+      <div class="dest-info"><div class="dest-name">Traverse City, MI</div><div class="dest-tagline">Best August weather · 30+ courses · Food &amp; Wine Fest</div></div>
+      <div class="dest-meta"><span class="meta-pill cost-pill">~$1,330/pp</span></div>
+    </div>
+    <div class="dest-card" draggable="true" data-id="ch">
+      <div class="drag-handle">⠿</div><div class="rank-badge" id="badge-ch">4</div>
+      <div class="dest-color-bar ch-bar"></div>
+      <div class="dest-info"><div class="dest-name">Chicago, IL</div><div class="dest-tagline">Best golf city in America · World-class nightlife</div></div>
+      <div class="dest-meta"><span class="meta-pill cost-pill">~$1,515/pp</span></div>
+    </div>
+    <div class="dest-card" draggable="true" data-id="sd">
+      <div class="drag-handle">⠿</div><div class="rank-badge" id="badge-sd">5</div>
+      <div class="dest-color-bar sd-bar"></div>
+      <div class="dest-info"><div class="dest-name">San Diego, CA</div><div class="dest-tagline">Perfect weather · Torrey Pines US Open venue</div></div>
+      <div class="dest-meta"><span class="meta-pill cost-pill">~$2,055/pp</span></div>
+    </div>
+  </div>
+
+  <div class="notes-section">
+    <label for="voter-notes">Any comments? (optional)</label>
+    <textarea id="voter-notes" placeholder="e.g. Fine with top 3, San Diego feels too far for me..."></textarea>
+  </div>
+
+  <div class="submit-row">
+    <button class="submit-btn" id="submit-btn" onclick="submitVote()">Submit my vote</button>
+    <span id="submit-status" style="font-size:13px;color:#8a8680;margin-left:10px;"></span>
+  </div>
+
+  <div class="result-banner" id="result-banner">
+    <div class="result-banner-label">Current leader</div>
+    <div class="result-banner-dest" id="result-banner-dest">—</div>
+    <div class="result-banner-sub" id="result-banner-sub"></div>
+  </div>
+
+  <div class="live-section">
+    <div class="live-section-header">
+      <div class="live-section-title">Live standings</div>
+      <div style="display:flex;gap:10px;align-items:center;">
+        <span class="live-badge"><span class="live-dot"></span>Live</span>
+        <button class="refresh-btn" onclick="loadResults()">↻ Refresh</button>
+      </div>
+    </div>
+    <div id="live-tally"><div style="font-size:13px;color:#8a8680;font-style:italic;">Loading...</div></div>
+  </div>
+
+  <div class="live-section" style="margin-top:16px;">
+    <div class="live-section-header">
+      <div class="live-section-title">Who has voted</div>
+      <span id="voter-count" style="font-size:13px;color:#8a8680;font-family:'DM Mono',monospace;"></span>
+    </div>
+    <div id="voter-list"><div style="font-size:13px;color:#8a8680;font-style:italic;">Loading...</div></div>
+  </div>
+
+  <div style="margin-top:12px;font-size:11px;color:#8a8680;font-style:italic;text-align:center;">
+    Votes are stored on JSONbin.io · Results auto-refresh every 30 seconds
+  </div>
+</div>
+
+<script>
+// ─────────────────────────────────────────────
+// STEP 1: Paste your JSONbin credentials here
+// ─────────────────────────────────────────────
+const JSONBIN_API_KEY  = '$2a$10$BDPecBkmSGorqCUkBmdAVe5UuQ6Krk5Bu0d9vWKKY05PZw7Kyw4bW';   // e.g. $2a$10$abc123...
+const JSONBIN_BIN_ID   = '69c19b49c3097a1dd551e109';       // e.g. 664f3a1e...
+// ─────────────────────────────────────────────
+
+const JSONBIN_URL = `https://api.jsonbin.io/v3/b/${JSONBIN_BIN_ID}`;
+const HEADERS = {
+  'Content-Type': 'application/json',
+  'X-Master-Key': JSONBIN_API_KEY,
+  'X-Bin-Versioning': 'false'
+};
+
+const DEST_NAMES  = { mb:'Myrtle Beach', ac:'Atlantic City', tc:'Traverse City', ch:'Chicago', sd:'San Diego' };
+const DEST_COLORS = { mb:'#1a6b3a', ac:'#1a3d6b', tc:'#3d6b1a', ch:'#7a1640', sd:'#994d00' };
+const POINTS = [5,4,3,2,1];
+const AVATAR_COLORS = ['#1a6b3a','#1a3d6b','#3d6b1a','#7a1640','#994d00','#5a3d8b','#8b5a2b','#2b5a8b'];
+
+function isConfigured() {
+  return JSONBIN_API_KEY !== 'YOUR_SECRET_KEY_HERE' && JSONBIN_BIN_ID !== 'YOUR_BIN_ID_HERE';
+}
+
+// ── Drag & drop ──────────────────────────────
+let dragSrc = null;
+const list = document.getElementById('dest-list');
+
+list.addEventListener('dragstart', e => {
+  const card = e.target.closest('.dest-card');
+  if (!card) return;
+  dragSrc = card;
+  setTimeout(() => card.classList.add('dragging'), 0);
+  e.dataTransfer.effectAllowed = 'move';
+});
+list.addEventListener('dragend', () => {
+  document.querySelectorAll('.dest-card').forEach(c => c.classList.remove('dragging','drag-over'));
+  updateBadges();
+});
+list.addEventListener('dragover', e => {
+  e.preventDefault();
+  const card = e.target.closest('.dest-card');
+  if (!card || card === dragSrc) return;
+  document.querySelectorAll('.dest-card').forEach(c => c.classList.remove('drag-over'));
+  card.classList.add('drag-over');
+  const mid = card.getBoundingClientRect().top + card.getBoundingClientRect().height / 2;
+  list.insertBefore(dragSrc, e.clientY < mid ? card : card.nextSibling);
+});
+list.addEventListener('drop', e => {
+  e.preventDefault();
+  document.querySelectorAll('.dest-card').forEach(c => c.classList.remove('drag-over'));
+  updateBadges();
+});
+
+function updateBadges() {
+  document.querySelectorAll('#dest-list .dest-card').forEach((card, i) => {
+    card.querySelector('.rank-badge').textContent = i + 1;
+  });
+}
+
+// ── Submit vote ───────────────────────────────
+async function submitVote() {
+  if (!isConfigured()) {
+    document.getElementById('setup-warning').classList.add('visible');
+    return;
+  }
+
+  const name = document.getElementById('voter-name').value.trim();
+  if (!name) { alert('Please enter your name first!'); return; }
+
+  if (localStorage.getItem('golf_voted_' + name.toLowerCase())) {
+    document.getElementById('already-voted').classList.add('visible');
+    return;
+  }
+
+  const order = [...document.querySelectorAll('#dest-list .dest-card')].map(c => c.dataset.id);
+  const notes = document.getElementById('voter-notes').value.trim();
+  const btn = document.getElementById('submit-btn');
+  const status = document.getElementById('submit-status');
+
+  btn.disabled = true;
+  btn.textContent = 'Saving…';
+  status.textContent = '';
+
+  const newVote = {
+    name,
+    order,
+    notes,
+    timestamp: new Date().toISOString(),
+    points: Object.fromEntries(order.map((id, i) => [id, POINTS[i]]))
+  };
+
+  try {
+    // Read current bin
+    const getRes = await fetch(JSONBIN_URL + '/latest', { headers: { 'X-Master-Key': JSONBIN_API_KEY } });
+    const getData = await getRes.json();
+    const existing = getData.record?.votes || [];
+
+    // Prevent duplicate by name
+    const alreadyIn = existing.some(v => v.name.toLowerCase() === name.toLowerCase());
+    if (alreadyIn) {
+      localStorage.setItem('golf_voted_' + name.toLowerCase(), '1');
+      document.getElementById('already-voted').classList.add('visible');
+      btn.disabled = false; btn.textContent = 'Submit my vote';
+      return;
+    }
+
+    // Write updated votes
+    const putRes = await fetch(JSONBIN_URL, {
+      method: 'PUT',
+      headers: HEADERS,
+      body: JSON.stringify({ votes: [...existing, newVote] })
+    });
+
+    if (!putRes.ok) throw new Error('Write failed');
+
+    localStorage.setItem('golf_voted_' + name.toLowerCase(), '1');
+    btn.textContent = '✓ Vote submitted!';
+    btn.style.background = '#1a6b3a';
+    status.textContent = 'Saved. Results updated below.';
+    document.getElementById('dest-list').style.pointerEvents = 'none';
+    document.getElementById('dest-list').style.opacity = '0.65';
+    document.getElementById('voter-notes').disabled = true;
+
+    await loadResults();
+    document.querySelector('.live-section').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+  } catch (err) {
+    btn.disabled = false;
+    btn.textContent = 'Submit my vote';
+    status.textContent = '⚠ Error saving — check your JSONbin credentials.';
+    console.error(err);
+  }
+}
+
+// ── Load & render results ─────────────────────
+async function loadResults() {
+  if (!isConfigured()) {
+    document.getElementById('live-tally').innerHTML = '<div style="font-size:13px;color:#8a8680;font-style:italic;">Configure JSONbin credentials to enable live results.</div>';
+    document.getElementById('voter-list').innerHTML = '<div style="font-size:13px;color:#8a8680;font-style:italic;">Not configured yet.</div>';
+    document.getElementById('voter-count').textContent = '';
+    return;
+  }
+
+  try {
+    const res = await fetch(JSONBIN_URL + '/latest', { headers: { 'X-Master-Key': JSONBIN_API_KEY } });
+    const data = await res.json();
+    const votes = data.record?.votes || [];
+
+    if (votes.length === 0) {
+      document.getElementById('live-tally').innerHTML = '<div style="font-size:13px;color:#8a8680;font-style:italic;padding:8px 0;">No votes yet — be the first!</div>';
+      document.getElementById('voter-list').innerHTML = '<div style="font-size:13px;color:#8a8680;font-style:italic;">No votes yet.</div>';
+      document.getElementById('voter-count').textContent = '0 / 8 voted';
+      return;
+    }
+
+    // Tally points
+    const totals = { mb:0, ac:0, tc:0, ch:0, sd:0 };
+    votes.forEach(v => Object.entries(v.points).forEach(([id, pts]) => {
+      if (id in totals) totals[id] += pts;
+    }));
+
+    const sorted = Object.entries(totals).sort((a, b) => b[1] - a[1]);
+    const maxPts = sorted[0][1] || 1;
+    const maxPossible = votes.length * 5;
+
+    // Bar chart
+    let tallyHtml = '';
+    sorted.forEach(([id, pts], i) => {
+      const pct = Math.round((pts / maxPts) * 100);
+      const isLeader = i === 0 && pts > 0;
+      tallyHtml += `<div class="tally-bar-row2">
+        <div class="tally-dest-name2">${isLeader ? '<span class="winner-lbl">Leader</span>' : ''}${DEST_NAMES[id]}</div>
+        <div class="tally-bar-track2"><div class="tally-bar-fill2" style="width:${pct}%;background:${DEST_COLORS[id]}"></div></div>
+        <div class="tally-pts2">${pts} pts</div>
+      </div>`;
+    });
+    document.getElementById('live-tally').innerHTML = tallyHtml;
+
+    // Leader banner
+    if (sorted[0][1] > 0) {
+      document.getElementById('result-banner-dest').textContent = DEST_NAMES[sorted[0][0]];
+      document.getElementById('result-banner-sub').textContent =
+        `${sorted[0][1]} points · ${votes.length} vote${votes.length !== 1 ? 's' : ''} in · ${Math.round((sorted[0][1]/maxPossible)*100)}% of max`;
+      document.getElementById('result-banner').classList.add('visible');
+    }
+
+    // Voter list
+    const sorted_votes = [...votes].sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
+    let voterHtml = '';
+    sorted_votes.forEach((v, i) => {
+      const initials = v.name.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2);
+      const color = AVATAR_COLORS[i % AVATAR_COLORS.length];
+      const picks = v.order.map((id, j) => `${j+1}.${DEST_NAMES[id].split(',')[0].trim()}`).join('  ');
+      const note = v.notes ? `<div style="font-size:11px;color:#8a8680;margin-top:2px;font-style:italic;">"${v.notes}"</div>` : '';
+      voterHtml += `<div class="voter-row">
+        <div class="voter-avatar" style="background:${color}">${initials}</div>
+        <div style="flex:1">
+          <div style="display:flex;align-items:center;gap:8px;">
+            <div class="voter-name-cell">${v.name}</div>
+            <span class="voted-pill">voted</span>
+          </div>
+          <div class="voter-picks">${picks}</div>
+          ${note}
+        </div>
+      </div>`;
+    });
+    document.getElementById('voter-list').innerHTML = voterHtml;
+    document.getElementById('voter-count').textContent = `${votes.length} / 8 voted`;
+
+  } catch (err) {
+    document.getElementById('live-tally').innerHTML = '<div style="font-size:13px;color:#8a8680;">Could not load results — check credentials.</div>';
+    console.error(err);
+  }
+}
+
+// ── Init ──────────────────────────────────────
+if (!isConfigured()) document.getElementById('setup-warning').classList.add('visible');
+document.getElementById('voter-name').addEventListener('blur', () => {
+  const name = document.getElementById('voter-name').value.trim();
+  if (name && localStorage.getItem('golf_voted_' + name.toLowerCase())) {
+    document.getElementById('already-voted').classList.add('visible');
+  }
+});
+
+updateBadges();
+loadResults();
+setInterval(loadResults, 30000);
+</script>
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  if (id === 'vote') loadResults();
+}
+</script>
+</body>
+</html>
