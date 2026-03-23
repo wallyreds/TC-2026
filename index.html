@@ -1141,7 +1141,7 @@ const JSONBIN_BIN_ID   = '69c19b49c3097a1dd551e109';       // e.g. 664f3a1e...
 const JSONBIN_URL = `https://api.jsonbin.io/v3/b/${JSONBIN_BIN_ID}`;
 const HEADERS = {
   'Content-Type': 'application/json',
-  'X-Master-Key': JSONBIN_API_KEY,
+  'X-Access-Key': JSONBIN_API_KEY,
   'X-Bin-Versioning': 'false'
 };
 
@@ -1224,7 +1224,7 @@ async function submitVote() {
 
   try {
     // Read current bin
-    const getRes = await fetch(JSONBIN_URL + '/latest', { headers: { 'X-Master-Key': JSONBIN_API_KEY } });
+    const getRes = await fetch(JSONBIN_URL + '/latest', { headers: { 'X-Access-Key': JSONBIN_API_KEY } });
     const getData = await getRes.json();
     const existing = getData.record?.votes || [];
 
@@ -1275,7 +1275,7 @@ async function loadResults() {
   }
 
   try {
-    const res = await fetch(JSONBIN_URL + '/latest', { headers: { 'X-Master-Key': JSONBIN_API_KEY } });
+    const res = await fetch(JSONBIN_URL + '/latest', { headers: { 'X-Access-Key': JSONBIN_API_KEY } });
     const data = await res.json();
     const votes = data.record?.votes || [];
 
