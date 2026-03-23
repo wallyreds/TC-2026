@@ -1059,6 +1059,115 @@ border-radius: 2px;
 
 .setup-warning{background:#fff3cd;border:1px solid #ffc107;border-radius:10px;padding:14px 18px;margin-bottom:20px;font-size:13px;color:#856404;display:none;}
 .setup-warning.visible{display:block;}
+
+/* ═══════════════════════════════════════
+MOBILE — full site overhaul
+═══════════════════════════════════════ */
+@media (max-width: 768px) {
+
+/* NAV */
+.tab-nav-inner { padding: 0 8px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.tab-title { font-size: 13px; padding-right: 12px; }
+.tab-btn { padding: 14px 14px; font-size: 10px; letter-spacing: .1em; }
+
+/* COMPARE TAB — page padding */
+#tab-compare .page { padding: 24px 14px 60px; }
+
+/* MASTHEAD */
+.masthead { margin-bottom: 32px; padding-bottom: 24px; }
+.masthead h1 { font-size: 28px; }
+.masthead-sub { font-size: 12px; }
+
+/* DESTINATION CARDS */
+.destination { margin-bottom: 28px; }
+.dest-header { padding: 18px 18px 16px; flex-direction: column; gap: 12px; }
+.dest-num { font-size: 44px; top: 14px; right: 18px; }
+.dest-title { font-size: 20px; }
+.dest-subtitle { font-size: 12px; }
+.dest-tag { font-size: 9px; }
+.dest-scores { gap: 12px; }
+.score-label { font-size: 8px; }
+.score-stars { font-size: 11px; }
+
+/* DEST BODY — stack all 3 columns */
+.dest-body { grid-template-columns: 1fr; }
+.dest-section { padding: 18px 18px; border-right: none; border-bottom: 1px solid var(–rule); }
+.dest-section:last-child { border-bottom: none; }
+
+/* BUDGET */
+.budget-row { font-size: 12px; gap: 8px; }
+.budget-label { flex: 1; min-width: 0; }
+.budget-val { font-size: 12px; white-space: nowrap; }
+.budget-total { font-size: 13px; }
+.budget-note { font-size: 11px; }
+
+/* RENTAL LINKS */
+.rental-link-row a { font-size: 11px; }
+
+/* ITINERARY */
+.day-block { margin-bottom: 14px; }
+.day-title { font-size: 13px; }
+.day-detail { font-size: 12px; }
+
+/* NIGHTLIFE */
+.spot-name { font-size: 13px; }
+.spot-desc { font-size: 11px; }
+
+/* SUMMARY TABLE — scroll horizontally */
+.summary-table-wrap { padding: 20px 14px; }
+.summary-heading { font-size: 18px; }
+.summary-sub { font-size: 12px; }
+.summary-table-wrap > div:last-child { font-size: 11px; }
+table.summary { font-size: 12px; display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; white-space: nowrap; }
+table.summary th { font-size: 9px; padding: 6px 10px; }
+table.summary td { padding: 9px 10px; }
+}
+
+@media (max-width: 480px) {
+.dest-scores { flex-wrap: wrap; gap: 10px; }
+.score-item { min-width: 48px; }
+}
+
+/* ── VOTE TAB MOBILE ── */
+@media (max-width: 600px) {
+
+/* Page */
+#tab-vote .page { padding: 24px 14px 60px; }
+.masthead h1 { font-size: 28px; }
+.how-it-works { font-size: 12px; }
+
+/* Name input — prevent iOS zoom on focus */
+.name-section input { font-size: 16px; }
+.notes-section textarea { font-size: 16px; }
+
+/* Cards */
+.dest-card { padding: 11px 10px; gap: 8px; touch-action: none; }
+.dest-name { font-size: 14px; }
+.dest-tagline { font-size: 11px; }
+.rank-badge { width: 28px; height: 28px; font-size: 14px; }
+.dest-color-bar { height: 36px; }
+.drag-handle { font-size: 22px; color: #c0bbb5; padding: 0 4px; }
+
+/* Submit row */
+.submit-row { flex-direction: column; align-items: stretch; }
+.submit-btn { width: 100%; padding: 14px; font-size: 15px; text-align: center; }
+#change-btn { width: 100%; padding: 12px; font-size: 14px; text-align: center; margin-left: 0 !important; }
+#submit-status { text-align: center; }
+
+/* Live sections */
+.live-section { padding: 16px 14px; }
+.tally-dest-name2 { font-size: 12px; min-width: 100px; }
+.tally-pts2 { font-size: 11px; min-width: 40px; }
+.voter-picks { font-size: 10px; }
+
+/* Result banner */
+.result-banner { padding: 16px 14px; }
+.result-banner-dest { font-size: 24px; }
+
+/* Already voted / setup warning */
+.already-voted, .setup-warning { font-size: 12px; padding: 12px 14px; }
+}
+
 </style>
 
 <div class="page">
@@ -1284,6 +1393,56 @@ function updateBadges() {
     card.querySelector('.rank-badge').textContent = i + 1;
   });
 }
+
+
+// ── Touch drag support ────────────────────────
+let touchDragSrc = null;
+let touchClone = null;
+let touchStartY = 0;
+
+list.addEventListener('touchstart', e => {
+  const card = e.target.closest('.dest-card');
+  if (!card) return;
+  touchDragSrc = card;
+  touchStartY = e.touches[0].clientY;
+  card.classList.add('dragging');
+
+  // Create visual clone
+  touchClone = card.cloneNode(true);
+  touchClone.style.cssText = `position:fixed;z-index:9998;width:${card.offsetWidth}px;opacity:0.9;pointer-events:none;box-shadow:0 8px 24px rgba(0,0,0,0.2);border-radius:12px;`;
+  const rect = card.getBoundingClientRect();
+  touchClone.style.top = rect.top + 'px';
+  touchClone.style.left = rect.left + 'px';
+  document.body.appendChild(touchClone);
+}, { passive: true });
+
+list.addEventListener('touchmove', e => {
+  if (!touchDragSrc || !touchClone) return;
+  e.preventDefault();
+  const touch = e.touches[0];
+  const rect = touchDragSrc.getBoundingClientRect();
+  touchClone.style.top = (touch.clientY - rect.height / 2) + 'px';
+  touchClone.style.left = rect.left + 'px';
+
+  // Find card under finger
+  touchClone.style.display = 'none';
+  const el = document.elementFromPoint(touch.clientX, touch.clientY);
+  touchClone.style.display = '';
+  const target = el ? el.closest('.dest-card') : null;
+  if (target && target !== touchDragSrc) {
+    document.querySelectorAll('.dest-card').forEach(c => c.classList.remove('drag-over'));
+    target.classList.add('drag-over');
+    const mid = target.getBoundingClientRect().top + target.getBoundingClientRect().height / 2;
+    list.insertBefore(touchDragSrc, touch.clientY < mid ? target : target.nextSibling);
+  }
+}, { passive: false });
+
+list.addEventListener('touchend', () => {
+  if (touchClone) { touchClone.remove(); touchClone = null; }
+  if (touchDragSrc) { touchDragSrc.classList.remove('dragging'); touchDragSrc = null; }
+  document.querySelectorAll('.dest-card').forEach(c => c.classList.remove('drag-over'));
+  updateBadges();
+});
 
 // ── Submit vote ───────────────────────────────
 async function submitVote() {
