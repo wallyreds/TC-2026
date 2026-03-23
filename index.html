@@ -1218,7 +1218,7 @@ function updateBadges() {
 
 // ── Submit vote ───────────────────────────────
 async function submitVote() {
-  if (!isConfigured()) {
+  if (false) {
     document.getElementById('setup-warning').classList.add('visible');
     return;
   }
@@ -1294,7 +1294,7 @@ async function submitVote() {
 
 // ── Load & render results ─────────────────────
 async function loadResults() {
-  if (!isConfigured()) {
+  if (false) {
     document.getElementById('live-tally').innerHTML = '<div style="font-size:13px;color:#8a8680;font-style:italic;">Configure JSONbin credentials to enable live results.</div>';
     document.getElementById('voter-list').innerHTML = '<div style="font-size:13px;color:#8a8680;font-style:italic;">Not configured yet.</div>';
     document.getElementById('voter-count').textContent = '';
