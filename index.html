@@ -567,15 +567,8 @@ border-radius: 2px;
   --rule: #d4cec0;
   --white: #faf8f4;
 }
-#tab-itinerary * { box-sizing: border-box; margin: 0; padding: 0; }
-#tab-itinerary body {
-  font-family: 'Josefin Sans', sans-serif;
-  background: var(--cream);
-  color: var(--ink);
-  line-height: 1.6;
-}
 /* ── HERO ── */
-.hero {
+#tab-itinerary .hero {
   background: var(--forest);
   color: var(--white);
   padding: 80px 24px 60px;
@@ -641,7 +634,7 @@ border-radius: 2px;
   margin-right: 6px;
 }
 /* ── OVERVIEW STRIP ── */
-.overview {
+#tab-itinerary .overview {
   background: var(--gold);
   color: var(--white);
   padding: 0;
@@ -669,13 +662,13 @@ border-radius: 2px;
   margin-top: 4px;
 }
 /* ── MAIN LAYOUT ── */
-.main {
+#tab-itinerary .main {
   max-width: 1100px;
   margin: 0 auto;
   padding: 60px 24px 80px;
 }
 /* ── SECTION HEADING ── */
-.section-title {
+#tab-itinerary .section-title {
   font-family: 'Cormorant Garamond', serif;
   font-size: 32px;
   font-weight: 600;
@@ -702,7 +695,7 @@ border-radius: 2px;
   color: var(--gold);
 }
 /* ── DAY CARDS ── */
-.days { display: flex; flex-direction: column; gap: 32px; margin-bottom: 60px; }
+#tab-itinerary .days { display: flex; flex-direction: column; gap: 32px; margin-bottom: 60px; }
 #tab-itinerary .day-card {
   background: var(--white);
   border-radius: 4px;
@@ -749,7 +742,7 @@ border-radius: 2px;
 }
 #tab-itinerary .day-body { padding: 32px 36px; }
 /* ── BLOCKS WITHIN DAY ── */
-.time-blocks { display: flex; flex-direction: column; gap: 0; }
+#tab-itinerary .time-blocks { display: flex; flex-direction: column; gap: 0; }
 #tab-itinerary .time-block {
   display: flex;
   gap: 20px;
@@ -804,7 +797,7 @@ border-radius: 2px;
 #tab-itinerary .tag-travel { background: var(--parchment); color: var(--copper); }
 #tab-itinerary .tag-tip { background: #fff8e0; color: #7a6000; }
 /* ── GOLF GUIDE ── */
-.courses-grid {
+#tab-itinerary .courses-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
@@ -858,7 +851,7 @@ border-radius: 2px;
   font-weight: 500;
 }
 /* ── NIGHTLIFE ── */
-.nightlife-grid {
+#tab-itinerary .nightlife-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 16px;
@@ -895,7 +888,7 @@ border-radius: 2px;
   margin-bottom: 4px;
 }
 /* ── LOGISTICS BOX ── */
-.logistics {
+#tab-itinerary .logistics {
   background: var(--forest);
   color: var(--white);
   border-radius: 4px;
@@ -933,7 +926,7 @@ border-radius: 2px;
 }
 #tab-itinerary .logistics-strong { color: var(--white); font-weight: 600; }
 /* ── BUDGET RECAP ── */
-.budget-recap {
+#tab-itinerary .budget-recap {
   background: var(--white);
   border-radius: 4px;
   padding: 36px;
@@ -967,7 +960,7 @@ border-radius: 2px;
 }
 #tab-itinerary .mono { font-family: 'DM Mono', monospace; }
 /* ── BOOKING CHECKLIST ── */
-.checklist {
+#tab-itinerary .checklist {
   background: var(--mist);
   border-radius: 4px;
   padding: 36px;
@@ -1013,7 +1006,7 @@ border-radius: 2px;
 #tab-itinerary .priority-soon { background: #fff3cd; color: #7a6000; }
 #tab-itinerary .priority-later { background: var(--mist); color: var(--forest); }
 /* ── FOOTER ── */
-.footer {
+#tab-itinerary .footer {
   background: var(--ink);
   color: rgba(255,255,255,0.5);
   text-align: center;
@@ -1025,15 +1018,15 @@ border-radius: 2px;
 #tab-itinerary .footer strong { color: var(--gold-light); }
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
-  .overview { grid-template-columns: repeat(2, 1fr); }
+  #tab-itinerary .overview { grid-template-columns: repeat(2, 1fr); }
   .day-card { grid-template-columns: 1fr; }
   .day-sidebar { padding: 24px; flex-direction: row; flex-wrap: wrap; align-items: center; gap: 8px; }
   .day-number { font-size: 44px; margin-bottom: 0; }
   .day-theme { margin-top: 0; }
   .day-body { padding: 20px; }
-  .courses-grid { grid-template-columns: 1fr; }
-  .nightlife-grid { grid-template-columns: 1fr; }
-  .logistics { grid-template-columns: 1fr; gap: 24px; padding: 24px; }
+  #tab-itinerary .courses-grid { grid-template-columns: 1fr; }
+  #tab-itinerary .nightlife-grid { grid-template-columns: 1fr; }
+  #tab-itinerary .logistics { grid-template-columns: 1fr; gap: 24px; padding: 24px; }
   .checklist-grid { grid-template-columns: 1fr; }
   .time-tag { min-width: 56px; font-size: 9px; }
 }
@@ -1130,8 +1123,7 @@ gap: 8px 14px;
   </div>
 </nav>
 
-<div id="tab-compare" class="tab-panel active">
-<div class="page">
+<div id="tab-compare" class="tab-panel active"><div class="page">
 
   <div class="masthead">
     <div class="masthead-eyebrow">8 Guys · Aug 13–16, 2026 · From Cheshire, CT</div>
@@ -1590,10 +1582,8 @@ gap: 8px 14px;
   </div>
 
 </div>
-</div>
-</div>
-<div id="tab-vote" class="tab-panel">
-<style>
+
+<div id="tab-vote" class="tab-panel"><style>
 .live-badge{display:inline-flex;align-items:center;gap:6px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#1a6b3a;background:#e8f5ee;border:0.5px solid #9FE1CB;border-radius:4px;padding:3px 10px;}
 .live-dot{width:6px;height:6px;border-radius:50%;background:#1D9E75;animation:lpulse 1.5s infinite;}
 @keyframes lpulse{0%,100%{opacity:1;}50%{opacity:.3;}}
@@ -2186,14 +2176,12 @@ document.getElementById('voter-name').addEventListener('blur', () => {
 });
 
 updateBadges();
-loadResults();
-setInterval(loadResults, 30000);
+// loadResults() and interval now only start when vote tab is opened
 </script>
 
 </div>
 
-<div id="tab-itinerary" class="tab-panel">
-<!-- ══════════════════════════════════════════════════════ -->
+<div id="tab-itinerary" class="tab-panel"><!-- ══════════════════════════════════════════════════════ -->
 <!-- HERO -->
 <!-- ══════════════════════════════════════════════════════ -->
 <div class="hero">
@@ -2771,16 +2759,27 @@ setInterval(loadResults, 30000);
 
 <div class="footer">
   <strong>TC6 Fairways & Fluffers 2026</strong> · Traverse City, MI · Aug 13–16 · Confidential Trip Document
-</div>
-</div>
+</div></div>
 
 <script>
+let voteIntervalStarted = false;
 function switchTab(id, btn) {
   document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
   document.getElementById('tab-' + id).classList.add('active');
   btn.classList.add('active');
   window.scrollTo({ top: 0, behavior: 'smooth' });
-  if (id === 'vote') loadResults();
+  if (id === 'vote') {
+    loadResults();
+    if (!voteIntervalStarted) {
+      setInterval(loadResults, 30000);
+      voteIntervalStarted = true;
+    }
+  }
 }
 </script>
+
+</body>
+
+</body>
+</html>
