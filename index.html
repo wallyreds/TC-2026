@@ -550,6 +550,7 @@ border-radius: 2px;
 <style>
 /* ══ ITINERARY TAB STYLES ══ */
 
+
 :root {
   --forest: #1a3d2b;
   --forest-mid: #2a5a3f;
@@ -566,16 +567,13 @@ border-radius: 2px;
   --rule: #d4cec0;
   --white: #faf8f4;
 }
-
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
-body {
+#tab-itinerary * { box-sizing: border-box; margin: 0; padding: 0; }
+#tab-itinerary body {
   font-family: 'Josefin Sans', sans-serif;
   background: var(--cream);
   color: var(--ink);
   line-height: 1.6;
 }
-
 /* ── HERO ── */
 .hero {
   background: var(--forest);
@@ -585,8 +583,7 @@ body {
   position: relative;
   overflow: hidden;
 }
-
-.hero::before {
+#tab-itinerary .hero::before {
   content: '';
   position: absolute;
   inset: 0;
@@ -595,8 +592,7 @@ body {
     radial-gradient(ellipse at 80% 20%, rgba(184, 144, 42, 0.15) 0%, transparent 50%);
   pointer-events: none;
 }
-
-.hero-eyebrow {
+#tab-itinerary .hero-eyebrow {
   font-family: 'DM Mono', monospace;
   font-size: 11px;
   letter-spacing: .25em;
@@ -604,8 +600,7 @@ body {
   color: var(--gold-light);
   margin-bottom: 20px;
 }
-
-.hero h1 {
+#tab-itinerary .hero h1 {
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(42px, 8vw, 80px);
   font-weight: 700;
@@ -613,29 +608,25 @@ body {
   margin-bottom: 8px;
   position: relative;
 }
-
-.hero h1 em {
+#tab-itinerary .hero h1 em {
   font-style: italic;
   color: var(--gold-light);
 }
-
-.hero-sub {
+#tab-itinerary .hero-sub {
   font-size: 13px;
   letter-spacing: .15em;
   text-transform: uppercase;
   color: var(--sage);
   margin-bottom: 40px;
 }
-
-.hero-pills {
+#tab-itinerary .hero-pills {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
   position: relative;
 }
-
-.hero-pill {
+#tab-itinerary .hero-pill {
   background: rgba(255,255,255,0.08);
   border: 0.5px solid rgba(255,255,255,0.2);
   border-radius: 100px;
@@ -645,12 +636,10 @@ body {
   text-transform: uppercase;
   color: rgba(255,255,255,0.8);
 }
-
-.hero-pill span {
+#tab-itinerary .hero-pill span {
   color: var(--gold-light);
   margin-right: 6px;
 }
-
 /* ── OVERVIEW STRIP ── */
 .overview {
   background: var(--gold);
@@ -659,37 +648,32 @@ body {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 }
-
-.overview-item {
+#tab-itinerary .overview-item {
   padding: 24px 20px;
   text-align: center;
   border-right: 0.5px solid rgba(255,255,255,0.2);
 }
-.overview-item:last-child { border-right: none; }
-
-.overview-num {
+#tab-itinerary .overview-item:last-child { border-right: none; }
+#tab-itinerary .overview-num {
   font-family: 'Cormorant Garamond', serif;
   font-size: 36px;
   font-weight: 700;
   line-height: 1;
   display: block;
 }
-
-.overview-label {
+#tab-itinerary .overview-label {
   font-size: 10px;
   letter-spacing: .18em;
   text-transform: uppercase;
   opacity: .8;
   margin-top: 4px;
 }
-
 /* ── MAIN LAYOUT ── */
 .main {
   max-width: 1100px;
   margin: 0 auto;
   padding: 60px 24px 80px;
 }
-
 /* ── SECTION HEADING ── */
 .section-title {
   font-family: 'Cormorant Garamond', serif;
@@ -698,33 +682,28 @@ body {
   margin-bottom: 6px;
   color: var(--forest);
 }
-
-.section-divider {
+#tab-itinerary .section-divider {
   display: flex;
   align-items: center;
   gap: 14px;
   margin-bottom: 32px;
 }
-
-.section-divider::after {
+#tab-itinerary .section-divider::after {
   content: '';
   flex: 1;
   height: 1px;
   background: var(--rule);
 }
-
-.section-eyebrow {
+#tab-itinerary .section-eyebrow {
   font-family: 'DM Mono', monospace;
   font-size: 10px;
   letter-spacing: .2em;
   text-transform: uppercase;
   color: var(--gold);
 }
-
 /* ── DAY CARDS ── */
 .days { display: flex; flex-direction: column; gap: 32px; margin-bottom: 60px; }
-
-.day-card {
+#tab-itinerary .day-card {
   background: var(--white);
   border-radius: 4px;
   overflow: hidden;
@@ -732,8 +711,7 @@ body {
   display: grid;
   grid-template-columns: 200px 1fr;
 }
-
-.day-sidebar {
+#tab-itinerary .day-sidebar {
   background: var(--forest);
   color: var(--white);
   padding: 32px 24px;
@@ -741,8 +719,7 @@ body {
   flex-direction: column;
   gap: 12px;
 }
-
-.day-number {
+#tab-itinerary .day-number {
   font-family: 'Cormorant Garamond', serif;
   font-size: 64px;
   font-weight: 700;
@@ -750,46 +727,39 @@ body {
   color: rgba(255,255,255,0.12);
   margin-bottom: -8px;
 }
-
-.day-label {
+#tab-itinerary .day-label {
   font-family: 'DM Mono', monospace;
   font-size: 10px;
   letter-spacing: .18em;
   text-transform: uppercase;
   color: var(--gold-light);
 }
-
-.day-date {
+#tab-itinerary .day-date {
   font-size: 18px;
   font-weight: 600;
   letter-spacing: .05em;
   line-height: 1.2;
 }
-
-.day-theme {
+#tab-itinerary .day-theme {
   font-family: 'Cormorant Garamond', serif;
   font-size: 15px;
   font-style: italic;
   color: var(--sage);
   margin-top: auto;
 }
-
-.day-body { padding: 32px 36px; }
-
+#tab-itinerary .day-body { padding: 32px 36px; }
 /* ── BLOCKS WITHIN DAY ── */
 .time-blocks { display: flex; flex-direction: column; gap: 0; }
-
-.time-block {
+#tab-itinerary .time-block {
   display: flex;
   gap: 20px;
   padding: 16px 0;
   border-bottom: 1px dotted var(--rule);
   align-items: flex-start;
 }
-.time-block:last-child { border-bottom: none; padding-bottom: 0; }
-.time-block:first-child { padding-top: 0; }
-
-.time-tag {
+#tab-itinerary .time-block:last-child { border-bottom: none; padding-bottom: 0; }
+#tab-itinerary .time-block:first-child { padding-top: 0; }
+#tab-itinerary .time-tag {
   font-family: 'DM Mono', monospace;
   font-size: 10px;
   letter-spacing: .12em;
@@ -799,30 +769,25 @@ body {
   padding-top: 2px;
   flex-shrink: 0;
 }
-
-.block-icon {
+#tab-itinerary .block-icon {
   font-size: 18px;
   flex-shrink: 0;
   margin-top: 1px;
 }
-
-.block-content { flex: 1; }
-
-.block-title {
+#tab-itinerary .block-content { flex: 1; }
+#tab-itinerary .block-title {
   font-size: 14px;
   font-weight: 600;
   letter-spacing: .04em;
   margin-bottom: 3px;
   color: var(--ink);
 }
-
-.block-detail {
+#tab-itinerary .block-detail {
   font-size: 13px;
   color: var(--stone);
   line-height: 1.5;
 }
-
-.block-tag {
+#tab-itinerary .block-tag {
   display: inline-block;
   font-family: 'DM Mono', monospace;
   font-size: 9px;
@@ -832,14 +797,12 @@ body {
   border-radius: 3px;
   margin-top: 6px;
 }
-
-.tag-golf { background: var(--mist); color: var(--forest); }
-.tag-food { background: #fdf0e6; color: #7a3d00; }
-.tag-night { background: #1a1a2e; color: #9090d0; }
-.tag-activity { background: #e8eef5; color: #1a3d6b; }
-.tag-travel { background: var(--parchment); color: var(--copper); }
-.tag-tip { background: #fff8e0; color: #7a6000; }
-
+#tab-itinerary .tag-golf { background: var(--mist); color: var(--forest); }
+#tab-itinerary .tag-food { background: #fdf0e6; color: #7a3d00; }
+#tab-itinerary .tag-night { background: #1a1a2e; color: #9090d0; }
+#tab-itinerary .tag-activity { background: #e8eef5; color: #1a3d6b; }
+#tab-itinerary .tag-travel { background: var(--parchment); color: var(--copper); }
+#tab-itinerary .tag-tip { background: #fff8e0; color: #7a6000; }
 /* ── GOLF GUIDE ── */
 .courses-grid {
   display: grid;
@@ -847,21 +810,18 @@ body {
   gap: 20px;
   margin-bottom: 60px;
 }
-
-.course-card {
+#tab-itinerary .course-card {
   background: var(--white);
   border-radius: 4px;
   overflow: hidden;
   box-shadow: 0 2px 12px rgba(0,0,0,0.06);
 }
-
-.course-header {
+#tab-itinerary .course-header {
   background: var(--forest-mid);
   padding: 20px 20px 16px;
   color: var(--white);
 }
-
-.course-round {
+#tab-itinerary .course-round {
   font-family: 'DM Mono', monospace;
   font-size: 9px;
   letter-spacing: .18em;
@@ -869,24 +829,20 @@ body {
   color: var(--gold-light);
   margin-bottom: 6px;
 }
-
-.course-name {
+#tab-itinerary .course-name {
   font-family: 'Cormorant Garamond', serif;
   font-size: 20px;
   font-weight: 700;
   line-height: 1.1;
   margin-bottom: 4px;
 }
-
-.course-designer {
+#tab-itinerary .course-designer {
   font-size: 12px;
   color: var(--sage);
   letter-spacing: .05em;
 }
-
-.course-body { padding: 16px 20px; }
-
-.course-stat-row {
+#tab-itinerary .course-body { padding: 16px 20px; }
+#tab-itinerary .course-stat-row {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
@@ -894,15 +850,13 @@ body {
   border-bottom: 1px dotted var(--rule);
   font-size: 12px;
 }
-.course-stat-row:last-child { border-bottom: none; }
-
-.course-stat-label { color: var(--stone); }
-.course-stat-val {
+#tab-itinerary .course-stat-row:last-child { border-bottom: none; }
+#tab-itinerary .course-stat-label { color: var(--stone); }
+#tab-itinerary .course-stat-val {
   font-family: 'DM Mono', monospace;
   font-size: 12px;
   font-weight: 500;
 }
-
 /* ── NIGHTLIFE ── */
 .nightlife-grid {
   display: grid;
@@ -910,8 +864,7 @@ body {
   gap: 16px;
   margin-bottom: 60px;
 }
-
-.night-card {
+#tab-itinerary .night-card {
   background: var(--white);
   border-radius: 4px;
   padding: 20px 22px;
@@ -921,23 +874,19 @@ body {
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
   border-left: 3px solid var(--forest);
 }
-
-.night-icon { font-size: 22px; flex-shrink: 0; }
-
-.night-name {
+#tab-itinerary .night-icon { font-size: 22px; flex-shrink: 0; }
+#tab-itinerary .night-name {
   font-size: 14px;
   font-weight: 600;
   letter-spacing: .03em;
   margin-bottom: 4px;
 }
-
-.night-desc {
+#tab-itinerary .night-desc {
   font-size: 12px;
   color: var(--stone);
   line-height: 1.5;
 }
-
-.night-type {
+#tab-itinerary .night-type {
   font-family: 'DM Mono', monospace;
   font-size: 9px;
   letter-spacing: .12em;
@@ -945,7 +894,6 @@ body {
   color: var(--gold);
   margin-bottom: 4px;
 }
-
 /* ── LOGISTICS BOX ── */
 .logistics {
   background: var(--forest);
@@ -957,8 +905,7 @@ body {
   gap: 40px;
   margin-bottom: 60px;
 }
-
-.logistics-col-title {
+#tab-itinerary .logistics-col-title {
   font-family: 'DM Mono', monospace;
   font-size: 10px;
   letter-spacing: .2em;
@@ -968,8 +915,7 @@ body {
   padding-bottom: 10px;
   border-bottom: 0.5px solid rgba(255,255,255,0.15);
 }
-
-.logistics-item {
+#tab-itinerary .logistics-item {
   display: flex;
   gap: 10px;
   margin-bottom: 12px;
@@ -977,8 +923,7 @@ body {
   line-height: 1.5;
   color: rgba(255,255,255,0.8);
 }
-
-.logistics-dot {
+#tab-itinerary .logistics-dot {
   width: 5px;
   height: 5px;
   border-radius: 50%;
@@ -986,9 +931,7 @@ body {
   flex-shrink: 0;
   margin-top: 7px;
 }
-
-.logistics-strong { color: var(--white); font-weight: 600; }
-
+#tab-itinerary .logistics-strong { color: var(--white); font-weight: 600; }
 /* ── BUDGET RECAP ── */
 .budget-recap {
   background: var(--white);
@@ -997,10 +940,8 @@ body {
   box-shadow: 0 2px 12px rgba(0,0,0,0.06);
   margin-bottom: 60px;
 }
-
-.budget-table { width: 100%; border-collapse: collapse; }
-
-.budget-table th {
+#tab-itinerary .budget-table { width: 100%; border-collapse: collapse; }
+#tab-itinerary .budget-table th {
   font-family: 'DM Mono', monospace;
   font-size: 10px;
   letter-spacing: .15em;
@@ -1011,25 +952,20 @@ body {
   border-bottom: 2px solid var(--ink);
   background: var(--cream);
 }
-
-.budget-table td {
+#tab-itinerary .budget-table td {
   padding: 11px 12px;
   border-bottom: 1px solid var(--rule);
   font-size: 13px;
   vertical-align: middle;
 }
-
-.budget-table tr:last-child td { border-bottom: none; }
-
-.budget-table .total-row td {
+#tab-itinerary .budget-table tr:last-child td { border-bottom: none; }
+#tab-itinerary .budget-table .total-row td {
   font-weight: 600;
   border-top: 2px solid var(--ink);
   font-size: 15px;
   padding-top: 14px;
 }
-
-.mono { font-family: 'DM Mono', monospace; }
-
+#tab-itinerary .mono { font-family: 'DM Mono', monospace; }
 /* ── BOOKING CHECKLIST ── */
 .checklist {
   background: var(--mist);
@@ -1037,30 +973,26 @@ body {
   padding: 36px;
   border-left: 4px solid var(--forest);
 }
-
-.checklist-title {
+#tab-itinerary .checklist-title {
   font-family: 'Cormorant Garamond', serif;
   font-size: 22px;
   font-weight: 600;
   color: var(--forest);
   margin-bottom: 20px;
 }
-
-.checklist-grid {
+#tab-itinerary .checklist-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
 }
-
-.check-item {
+#tab-itinerary .check-item {
   display: flex;
   gap: 10px;
   align-items: flex-start;
   font-size: 13px;
   color: var(--ink);
 }
-
-.check-box {
+#tab-itinerary .check-box {
   width: 18px;
   height: 18px;
   border: 1.5px solid var(--forest);
@@ -1068,8 +1000,7 @@ body {
   flex-shrink: 0;
   margin-top: 1px;
 }
-
-.check-priority {
+#tab-itinerary .check-priority {
   font-family: 'DM Mono', monospace;
   font-size: 9px;
   letter-spacing: .1em;
@@ -1078,11 +1009,9 @@ body {
   border-radius: 2px;
   margin-left: 4px;
 }
-
-.priority-now { background: #fee; color: #c00; }
-.priority-soon { background: #fff3cd; color: #7a6000; }
-.priority-later { background: var(--mist); color: var(--forest); }
-
+#tab-itinerary .priority-now { background: #fee; color: #c00; }
+#tab-itinerary .priority-soon { background: #fff3cd; color: #7a6000; }
+#tab-itinerary .priority-later { background: var(--mist); color: var(--forest); }
 /* ── FOOTER ── */
 .footer {
   background: var(--ink);
@@ -1093,9 +1022,7 @@ body {
   letter-spacing: .1em;
   font-family: 'DM Mono', monospace;
 }
-
-.footer strong { color: var(--gold-light); }
-
+#tab-itinerary .footer strong { color: var(--gold-light); }
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
   .overview { grid-template-columns: repeat(2, 1fr); }
@@ -1110,6 +1037,7 @@ body {
   .checklist-grid { grid-template-columns: 1fr; }
   .time-tag { min-width: 56px; font-size: 9px; }
 }
+
 
 </style>
 
@@ -1664,6 +1592,7 @@ gap: 8px 14px;
 </div>
 </div>
 </div>
+<div id="tab-vote" class="tab-panel">
 <style>
 .live-badge{display:inline-flex;align-items:center;gap:6px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#1a6b3a;background:#e8f5ee;border:0.5px solid #9FE1CB;border-radius:4px;padding:3px 10px;}
 .live-dot{width:6px;height:6px;border-radius:50%;background:#1D9E75;animation:lpulse 1.5s infinite;}
@@ -2855,6 +2784,3 @@ function switchTab(id, btn) {
   if (id === 'vote') loadResults();
 }
 </script>
-
-</body>
-</html>
