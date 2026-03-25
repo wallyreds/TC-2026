@@ -1739,20 +1739,6 @@ setInterval(loadResults, 30000);
 </div>
 
 <script>
-
-// Toggle collapsed destination cards
-document.querySelectorAll('.destination:not(.tc) .dest-header').forEach(header => {
-  header.addEventListener('click', () => {
-    const dest = header.closest('.destination');
-    const body = dest.querySelector('.dest-body');
-    if (body) {
-      const isHidden = body.style.display === 'none' || getComputedStyle(body).display === 'none';
-      body.style.display = isHidden ? 'grid' : 'none';
-      dest.style.opacity = isHidden ? '1' : '0.45';
-    }
-  });
-});
-
 function switchTab(id, btn) {
   document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -1761,6 +1747,19 @@ function switchTab(id, btn) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
   if (id === 'vote') loadResults();
 }
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.destination:not(.tc) .dest-header').forEach(function(header) {
+    header.addEventListener('click', function() {
+      var dest = header.closest('.destination');
+      var body = dest.querySelector('.dest-body');
+      if (body) {
+        var hidden = body.style.display === 'none' || getComputedStyle(body).display === 'none';
+        body.style.display = hidden ? 'grid' : 'none';
+        dest.style.opacity = hidden ? '1' : '0.45';
+      }
+    });
+  });
+});
 </script>
 
 </body>
