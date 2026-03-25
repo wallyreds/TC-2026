@@ -556,14 +556,10 @@ border-radius: 2px;
 .winner-banner-pills{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;}
 .winner-banner-pill{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border-radius:20px;border:1px solid rgba(255,255,255,0.3);color:rgba(255,255,255,0.85);}
 .tc-winner-badge{display:inline-flex;align-items:center;gap:6px;background:#1a3d2b;color:white;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border-radius:4px;margin-bottom:8px;}
-</style>
-<style>
-.destination:not(.tc) .dest-body { display: none; }
-.destination:not(.tc) { opacity: 0.45; }
-.destination:not(.tc) .dest-header { cursor: pointer; }
-.destination:not(.tc) .dest-header:hover { opacity: 1; }
-.destination:not(.tc):hover { opacity: 1; }
-.dest-expand-hint { font-family: "DM Mono", monospace; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: #8a8680; margin-top: 6px; }
+.destination:not(.tc) .dest-body{display:none;}
+.destination:not(.tc){opacity:0.45;cursor:pointer;}
+.destination:not(.tc):hover{opacity:0.7;}
+.dest-expand-hint{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#8a8680;margin-top:6px;}
 </style>
 </head>
 <body>
@@ -578,20 +574,9 @@ border-radius: 2px;
 </nav>
 
 <div id="tab-compare" class="tab-panel active">
-<div class="page"><div class="winner-banner">
-  <div class="winner-banner-eyebrow">🗳️ TC6 Fairways & Fluffers 2026 — Destination Chosen</div>
-  <span class="winner-banner-trophy">🏆</span>
-  <div class="winner-banner-title">Traverse City, MI</div>
-  <div class="winner-banner-sub">Aug 13–16, 2026 · The votes have spoken</div>
-  <div class="winner-banner-pills">
-    <span class="winner-banner-pill">⛳ The Bear · Nicklaus</span>
-    <span class="winner-banner-pill">⛳ The Wolverine · Gary Player</span>
-    <span class="winner-banner-pill">⛳ Arcadia Bluffs · #1 Michigan</span>
-    <span class="winner-banner-pill">🏎️ K1 Speed · Day 2</span>
-    <span class="winner-banner-pill">🍺 7 Monks · Low Bar</span>
-  </div>
-</div>
+<div class="page">
 
+<div class="winner-banner"><div class="winner-banner-eyebrow">🗳️ TC6 Fairways & Fluffers 2026 — Destination Chosen</div><span class="winner-banner-trophy">🏆</span><div class="winner-banner-title">Traverse City, MI</div><div class="winner-banner-sub">Aug 13–16, 2026 · The votes have spoken</div><div class="winner-banner-pills"><span class="winner-banner-pill">⛳ The Bear · Nicklaus</span><span class="winner-banner-pill">⛳ The Wolverine · Gary Player</span><span class="winner-banner-pill">⛳ Arcadia Bluffs</span><span class="winner-banner-pill">🏎️ K1 Speed</span><span class="winner-banner-pill">🍺 7 Monks · Low Bar</span></div></div>
 
   <div class="masthead">
     <div class="masthead-eyebrow">8 Guys · Aug 13–16, 2026 · From Cheshire, CT</div>
@@ -1049,6 +1034,8 @@ border-radius: 2px;
     </div>
   </div>
 
+</div>
+</div>
 </div>
 <style>
 .live-badge{display:inline-flex;align-items:center;gap:6px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#1a6b3a;background:#e8f5ee;border:0.5px solid #9FE1CB;border-radius:4px;padding:3px 10px;}
@@ -1647,6 +1634,8 @@ loadResults();
 setInterval(loadResults, 30000);
 </script>
 
+</div>
+
 <script>
 function switchTab(id, btn) {
   document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
@@ -1661,14 +1650,14 @@ function switchTab(id, btn) {
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('.destination:not(.tc)').forEach(function(dest) {
-    var header = dest.querySelector('.dest-header');
     var body = dest.querySelector('.dest-body');
+    var header = dest.querySelector('.dest-header');
     var hint = document.createElement('div');
     hint.className = 'dest-expand-hint';
     hint.textContent = '+ Click to expand';
     header.appendChild(hint);
     header.addEventListener('click', function() {
-      var hidden = body.style.display === 'none' || !body.style.display;
+      var hidden = !body.style.display || body.style.display === 'none';
       body.style.display = hidden ? 'grid' : 'none';
       dest.style.opacity = hidden ? '1' : '0.45';
       hint.textContent = hidden ? '− Click to collapse' : '+ Click to expand';
