@@ -647,6 +647,155 @@ border-radius: 2px;
   }
 </style>
 
+<style>
+.live-badge{display:inline-flex;align-items:center;gap:6px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#1a6b3a;background:#e8f5ee;border:0.5px solid #9FE1CB;border-radius:4px;padding:3px 10px;}
+.live-dot{width:6px;height:6px;border-radius:50%;background:#1D9E75;animation:lpulse 1.5s infinite;}
+@keyframes lpulse{0%,100%{opacity:1;}50%{opacity:.3;}}
+.voter-row{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px dotted #ddd9d0;font-size:13px;}
+.voter-row:last-child{border-bottom:none;}
+.voter-avatar{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:500;font-size:11px;flex-shrink:0;color:white;}
+.voter-name-cell{flex:1;font-weight:500;}
+.voter-picks{font-size:11px;color:#8a8680;font-family:'DM Mono',monospace;}
+.voted-pill{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;background:#e8f5ee;color:#1a6b3a;padding:2px 7px;border-radius:4px;}
+.result-banner{background:#e8f5ee;border:1px solid #9FE1CB;border-radius:10px;padding:20px 24px;margin-bottom:24px;text-align:center;display:none;}
+.result-banner.visible{display:block;}
+.result-banner-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:#0F6E56;margin-bottom:6px;}
+.result-banner-dest{font-family:'Playfair Display',serif;font-size:30px;font-weight:700;color:#085041;margin-bottom:4px;}
+.result-banner-sub{font-size:13px;color:#0F6E56;}
+.already-voted{background:#fff8e8;border:1px solid #f0c080;border-radius:10px;padding:14px 18px;margin-bottom:20px;font-size:13px;color:#633806;display:none;}
+.already-voted.visible{display:block;}
+.live-section{background:white;border-radius:12px;border:0.5px solid #ddd9d0;padding:24px;margin-top:24px;}
+.live-section-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:8px;}
+.live-section-title{font-weight:500;font-size:15px;}
+.tally-bar-row2{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.tally-dest-name2{font-size:13px;font-weight:500;min-width:130px;}
+.tally-bar-track2{flex:1;height:10px;background:#f7f5f0;border-radius:5px;overflow:hidden;}
+.tally-bar-fill2{height:100%;border-radius:5px;transition:width .6s ease;}
+.tally-pts2{font-family:'DM Mono',monospace;font-size:12px;color:#8a8680;min-width:52px;text-align:right;}
+.winner-lbl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;background:#BA7517;color:white;padding:2px 7px;border-radius:3px;margin-right:5px;}
+.refresh-btn{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;background:none;border:0.5px solid #ddd9d0;border-radius:6px;padding:5px 12px;cursor:pointer;color:#8a8680;transition:background .15s;}
+.refresh-btn:hover{background:#f7f5f0;}
+
+.vote-popup-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:9999;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s ease;}
+.vote-popup-overlay.visible{opacity:1;pointer-events:all;}
+.vote-popup-box{background:white;border-radius:16px;padding:24px;max-width:360px;width:90%;text-align:center;transform:scale(0.85);transition:transform .3s ease;box-shadow:0 20px 60px rgba(0,0,0,.4);}
+.vote-popup-overlay.visible .vote-popup-box{transform:scale(1);}
+.vote-popup-img{width:100%;border-radius:10px;margin-bottom:16px;}
+.vote-popup-close{font-family:‘DM Mono’,monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;background:#1a6b3a;color:white;border:none;border-radius:8px;padding:10px 24px;cursor:pointer;margin-top:4px;}
+.vote-popup-close:hover{background:#0f5a2e;}
+
+.setup-warning{background:#fff3cd;border:1px solid #ffc107;border-radius:10px;padding:14px 18px;margin-bottom:20px;font-size:13px;color:#856404;display:none;}
+.setup-warning.visible{display:block;}
+
+/* ═══════════════════════════════════════
+MOBILE — full site overhaul
+═══════════════════════════════════════ */
+@media (max-width: 768px) {
+
+/* NAV */
+.tab-nav-inner { padding: 0 8px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.tab-title { font-size: 13px; padding-right: 12px; }
+.tab-btn { padding: 14px 14px; font-size: 10px; letter-spacing: .1em; }
+
+/* COMPARE TAB — page padding */
+#tab-compare .page { padding: 24px 14px 60px; }
+
+/* MASTHEAD */
+.masthead { margin-bottom: 32px; padding-bottom: 24px; }
+.masthead h1 { font-size: 28px; }
+.masthead-sub { font-size: 12px; }
+
+/* DESTINATION CARDS */
+.destination { margin-bottom: 28px; }
+.dest-header { padding: 18px 18px 16px; flex-direction: column; gap: 12px; }
+.dest-num { font-size: 44px; top: 14px; right: 18px; }
+.dest-title { font-size: 20px; }
+.dest-subtitle { font-size: 12px; }
+.dest-tag { font-size: 9px; }
+.dest-scores { gap: 12px; }
+.score-label { font-size: 8px; }
+.score-stars { font-size: 11px; }
+
+/* DEST BODY — stack all 3 columns */
+.dest-body { grid-template-columns: 1fr; }
+.dest-section { padding: 18px 18px; border-right: none; border-bottom: 1px solid var(–rule); }
+.dest-section:last-child { border-bottom: none; }
+
+/* BUDGET */
+.budget-row { font-size: 12px; gap: 8px; }
+.budget-label { flex: 1; min-width: 0; }
+.budget-val { font-size: 12px; white-space: nowrap; }
+.budget-total { font-size: 13px; }
+.budget-note { font-size: 11px; }
+
+/* RENTAL LINKS */
+.rental-link-row a { font-size: 11px; }
+
+/* ITINERARY */
+.day-block { margin-bottom: 14px; }
+.day-title { font-size: 13px; }
+.day-detail { font-size: 12px; }
+
+/* NIGHTLIFE */
+.spot-name { font-size: 13px; }
+.spot-desc { font-size: 11px; }
+
+/* SUMMARY TABLE — scroll horizontally */
+.summary-table-wrap { padding: 20px 14px; }
+.summary-heading { font-size: 18px; }
+.summary-sub { font-size: 12px; }
+.summary-table-wrap > div:last-child { font-size: 11px; }
+table.summary { font-size: 12px; display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; white-space: nowrap; }
+table.summary th { font-size: 9px; padding: 6px 10px; }
+table.summary td { padding: 9px 10px; }
+}
+
+@media (max-width: 480px) {
+.dest-scores { flex-wrap: wrap; gap: 10px; }
+.score-item { min-width: 48px; }
+}
+
+/* ── VOTE TAB MOBILE ── */
+@media (max-width: 600px) {
+
+/* Page */
+#tab-vote .page { padding: 24px 14px 60px; }
+.masthead h1 { font-size: 28px; }
+.how-it-works { font-size: 12px; }
+
+/* Name input — prevent iOS zoom on focus */
+.name-section input { font-size: 16px; }
+.notes-section textarea { font-size: 16px; }
+
+/* Cards */
+.dest-card { padding: 11px 10px; gap: 8px; touch-action: none; }
+.dest-name { font-size: 14px; }
+.dest-tagline { font-size: 11px; }
+.rank-badge { width: 28px; height: 28px; font-size: 14px; }
+.dest-color-bar { height: 36px; }
+.drag-handle { font-size: 22px; color: #c0bbb5; padding: 0 4px; }
+
+/* Submit row */
+.submit-row { flex-direction: column; align-items: stretch; }
+.submit-btn { width: 100%; padding: 14px; font-size: 15px; text-align: center; }
+#change-btn { width: 100%; padding: 12px; font-size: 14px; text-align: center; margin-left: 0 !important; }
+#submit-status { text-align: center; }
+
+/* Live sections */
+.live-section { padding: 16px 14px; }
+.tally-dest-name2 { font-size: 12px; min-width: 100px; }
+.tally-pts2 { font-size: 11px; min-width: 40px; }
+.voter-picks { font-size: 10px; }
+
+/* Result banner */
+.result-banner { padding: 16px 14px; }
+.result-banner-dest { font-size: 24px; }
+
+/* Already voted / setup warning */
+.already-voted, .setup-warning { font-size: 12px; padding: 12px 14px; }
+}
+
+</style>
 </head>
 <body>
 
@@ -1123,155 +1272,7 @@ border-radius: 2px;
 
 </div>
 <div id="tab-vote" class="tab-panel">
-<style>
-.live-badge{display:inline-flex;align-items:center;gap:6px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#1a6b3a;background:#e8f5ee;border:0.5px solid #9FE1CB;border-radius:4px;padding:3px 10px;}
-.live-dot{width:6px;height:6px;border-radius:50%;background:#1D9E75;animation:lpulse 1.5s infinite;}
-@keyframes lpulse{0%,100%{opacity:1;}50%{opacity:.3;}}
-.voter-row{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px dotted #ddd9d0;font-size:13px;}
-.voter-row:last-child{border-bottom:none;}
-.voter-avatar{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:500;font-size:11px;flex-shrink:0;color:white;}
-.voter-name-cell{flex:1;font-weight:500;}
-.voter-picks{font-size:11px;color:#8a8680;font-family:'DM Mono',monospace;}
-.voted-pill{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;background:#e8f5ee;color:#1a6b3a;padding:2px 7px;border-radius:4px;}
-.result-banner{background:#e8f5ee;border:1px solid #9FE1CB;border-radius:10px;padding:20px 24px;margin-bottom:24px;text-align:center;display:none;}
-.result-banner.visible{display:block;}
-.result-banner-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:#0F6E56;margin-bottom:6px;}
-.result-banner-dest{font-family:'Playfair Display',serif;font-size:30px;font-weight:700;color:#085041;margin-bottom:4px;}
-.result-banner-sub{font-size:13px;color:#0F6E56;}
-.already-voted{background:#fff8e8;border:1px solid #f0c080;border-radius:10px;padding:14px 18px;margin-bottom:20px;font-size:13px;color:#633806;display:none;}
-.already-voted.visible{display:block;}
-.live-section{background:white;border-radius:12px;border:0.5px solid #ddd9d0;padding:24px;margin-top:24px;}
-.live-section-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:8px;}
-.live-section-title{font-weight:500;font-size:15px;}
-.tally-bar-row2{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
-.tally-dest-name2{font-size:13px;font-weight:500;min-width:130px;}
-.tally-bar-track2{flex:1;height:10px;background:#f7f5f0;border-radius:5px;overflow:hidden;}
-.tally-bar-fill2{height:100%;border-radius:5px;transition:width .6s ease;}
-.tally-pts2{font-family:'DM Mono',monospace;font-size:12px;color:#8a8680;min-width:52px;text-align:right;}
-.winner-lbl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;background:#BA7517;color:white;padding:2px 7px;border-radius:3px;margin-right:5px;}
-.refresh-btn{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;background:none;border:0.5px solid #ddd9d0;border-radius:6px;padding:5px 12px;cursor:pointer;color:#8a8680;transition:background .15s;}
-.refresh-btn:hover{background:#f7f5f0;}
 
-.vote-popup-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:9999;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s ease;}
-.vote-popup-overlay.visible{opacity:1;pointer-events:all;}
-.vote-popup-box{background:white;border-radius:16px;padding:24px;max-width:360px;width:90%;text-align:center;transform:scale(0.85);transition:transform .3s ease;box-shadow:0 20px 60px rgba(0,0,0,.4);}
-.vote-popup-overlay.visible .vote-popup-box{transform:scale(1);}
-.vote-popup-img{width:100%;border-radius:10px;margin-bottom:16px;}
-.vote-popup-close{font-family:‘DM Mono’,monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;background:#1a6b3a;color:white;border:none;border-radius:8px;padding:10px 24px;cursor:pointer;margin-top:4px;}
-.vote-popup-close:hover{background:#0f5a2e;}
-
-.setup-warning{background:#fff3cd;border:1px solid #ffc107;border-radius:10px;padding:14px 18px;margin-bottom:20px;font-size:13px;color:#856404;display:none;}
-.setup-warning.visible{display:block;}
-
-/* ═══════════════════════════════════════
-MOBILE — full site overhaul
-═══════════════════════════════════════ */
-@media (max-width: 768px) {
-
-/* NAV */
-.tab-nav-inner { padding: 0 8px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
-.tab-title { font-size: 13px; padding-right: 12px; }
-.tab-btn { padding: 14px 14px; font-size: 10px; letter-spacing: .1em; }
-
-/* COMPARE TAB — page padding */
-#tab-compare .page { padding: 24px 14px 60px; }
-
-/* MASTHEAD */
-.masthead { margin-bottom: 32px; padding-bottom: 24px; }
-.masthead h1 { font-size: 28px; }
-.masthead-sub { font-size: 12px; }
-
-/* DESTINATION CARDS */
-.destination { margin-bottom: 28px; }
-.dest-header { padding: 18px 18px 16px; flex-direction: column; gap: 12px; }
-.dest-num { font-size: 44px; top: 14px; right: 18px; }
-.dest-title { font-size: 20px; }
-.dest-subtitle { font-size: 12px; }
-.dest-tag { font-size: 9px; }
-.dest-scores { gap: 12px; }
-.score-label { font-size: 8px; }
-.score-stars { font-size: 11px; }
-
-/* DEST BODY — stack all 3 columns */
-.dest-body { grid-template-columns: 1fr; }
-.dest-section { padding: 18px 18px; border-right: none; border-bottom: 1px solid var(–rule); }
-.dest-section:last-child { border-bottom: none; }
-
-/* BUDGET */
-.budget-row { font-size: 12px; gap: 8px; }
-.budget-label { flex: 1; min-width: 0; }
-.budget-val { font-size: 12px; white-space: nowrap; }
-.budget-total { font-size: 13px; }
-.budget-note { font-size: 11px; }
-
-/* RENTAL LINKS */
-.rental-link-row a { font-size: 11px; }
-
-/* ITINERARY */
-.day-block { margin-bottom: 14px; }
-.day-title { font-size: 13px; }
-.day-detail { font-size: 12px; }
-
-/* NIGHTLIFE */
-.spot-name { font-size: 13px; }
-.spot-desc { font-size: 11px; }
-
-/* SUMMARY TABLE — scroll horizontally */
-.summary-table-wrap { padding: 20px 14px; }
-.summary-heading { font-size: 18px; }
-.summary-sub { font-size: 12px; }
-.summary-table-wrap > div:last-child { font-size: 11px; }
-table.summary { font-size: 12px; display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; white-space: nowrap; }
-table.summary th { font-size: 9px; padding: 6px 10px; }
-table.summary td { padding: 9px 10px; }
-}
-
-@media (max-width: 480px) {
-.dest-scores { flex-wrap: wrap; gap: 10px; }
-.score-item { min-width: 48px; }
-}
-
-/* ── VOTE TAB MOBILE ── */
-@media (max-width: 600px) {
-
-/* Page */
-#tab-vote .page { padding: 24px 14px 60px; }
-.masthead h1 { font-size: 28px; }
-.how-it-works { font-size: 12px; }
-
-/* Name input — prevent iOS zoom on focus */
-.name-section input { font-size: 16px; }
-.notes-section textarea { font-size: 16px; }
-
-/* Cards */
-.dest-card { padding: 11px 10px; gap: 8px; touch-action: none; }
-.dest-name { font-size: 14px; }
-.dest-tagline { font-size: 11px; }
-.rank-badge { width: 28px; height: 28px; font-size: 14px; }
-.dest-color-bar { height: 36px; }
-.drag-handle { font-size: 22px; color: #c0bbb5; padding: 0 4px; }
-
-/* Submit row */
-.submit-row { flex-direction: column; align-items: stretch; }
-.submit-btn { width: 100%; padding: 14px; font-size: 15px; text-align: center; }
-#change-btn { width: 100%; padding: 12px; font-size: 14px; text-align: center; margin-left: 0 !important; }
-#submit-status { text-align: center; }
-
-/* Live sections */
-.live-section { padding: 16px 14px; }
-.tally-dest-name2 { font-size: 12px; min-width: 100px; }
-.tally-pts2 { font-size: 11px; min-width: 40px; }
-.voter-picks { font-size: 10px; }
-
-/* Result banner */
-.result-banner { padding: 16px 14px; }
-.result-banner-dest { font-size: 24px; }
-
-/* Already voted / setup warning */
-.already-voted, .setup-warning { font-size: 12px; padding: 12px 14px; }
-}
-
-</style>
 
 <div class="winner-banner">
   <div class="winner-banner-eyebrow">🗳️ TC6 Fairways & Fluffers — The Votes Are In</div>
